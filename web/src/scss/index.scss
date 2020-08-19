@@ -1,0 +1,84 @@
+$font-one: 'Merriweather', serif;
+$font-two: 'Playfair Display SC', serif;
+$font-three: 'Courgette', cursive;
+
+.App{
+  font-family: $font-one;
+  margin-bottom:50px;
+}
+.div-nav{
+  p{
+    font-size:15px;
+  }
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  margin-top:20px;
+  .nav-right{
+    display: flex;
+    p{
+      margin-left:20px;
+    }
+  }
+}
+.div-information{
+  h1, h3{
+    text-align:center;
+    margin-bottom: 30px;
+    font-family: $font-two;
+  }
+  td{
+    font-size: 13px;
+  }
+  th{
+    font-size:16px;
+  }
+}
+
+.div-login{
+  font-family: $font-three;
+  width:300px;
+  button{
+    width: 100%;
+  }
+}
+
+.div-hospital_profile{
+  margin-top: 30px;
+  font-family: $font-three;
+}
+
+.card-dokter{
+  width: 300px;
+}
+
+.div-card_dokter{
+  width:300px;
+}
+
+.div-monitor{
+  border-style: solid;
+}
+
+.div-monitor{
+  text-align: center;
+  .div-active_antrian{
+    text-align: center;
+  }
+}
+
+.card-antrian{
+  margin:10px;
+  width:300px;
+}
+
+.div-time{
+  justify-content: space-between;
+}
+
+.div-share_monitor{
+  margin:auto;
+  text-align: center;
+  justify-content: center;
+  font-size:15px;
+}
