@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react'
-
+import Clock from 'react-clock';
 
 function Date() {
+
+  const [ date, setDate ] = useState('')
+
+
 
   return (
 
     <div className="div-date">
-      <p></p>
+      <Clock
+      />
     </div>
   )
 }
