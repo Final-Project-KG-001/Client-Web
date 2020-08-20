@@ -8,18 +8,14 @@ import {
 } from 'react-router-dom'
 import Login from './components/Login'
 import ShowMonitor from './components/ShowMonitor'
+import Navigation from './components/Navigation'
 
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Link to="/monitor" style={ { margin: '20px' } }>
-          Controller
-        </Link>
-        <Link to="/" style={ { margin: '20px' } }>
-          Logout
-        </Link>
+        <Navigation />
         <Switch>
           <Route path="/monitor">
             <ShowMonitor />

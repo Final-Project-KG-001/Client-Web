@@ -1,5 +1,6 @@
 .App {
   font-family: "Merriweather", serif;
+  background-color: #eae7dc;
 }
 
 .div-login {
@@ -12,117 +13,104 @@
   width: 100%;
 }
 
-.div-monitor {
+.container-monitor {
   margin-top: 20px;
 }
 
-.div-monitor h3 {
-  color: #55bcc9;
+.div-bottom {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-right: 0;
 }
 
-.div-monitor h1 {
-  font-weight: bolder;
-  font-size: 50px;
-}
-
-.div-monitor h2 {
-  font-weight: bolder;
-  font-size: 40px;
-  color: #ee5253;
-}
-
-.div-monitor p {
-  font-size: 20px;
-}
-
-.div-monitor h5 {
-  font-size: 25px;
+.div-top {
   font-weight: bold;
-}
-
-.div-monitor {
   text-align: center;
-  z-index: -1;
-  height: 830px;
 }
 
-.div-monitor .div-active_antrian {
+.div-top .div-antrian_number {
+  background-color: #e66767;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.div-top .div-antrian_number p {
+  font-size: 60px;
+  font-weight: bold;
   text-align: center;
-  margin-top: 15px;
 }
 
-.div-monitor .div-active_antrian h3 {
-  color: #0097e6;
+.div-top .div-antrian_title {
+  height: 60px;
+  background-color: #ea8685;
+  margin-bottom: 10px;
 }
 
-.div-monitor .div-antrian_card {
-  z-index: -1;
-  margin: auto;
-  width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+.div-top .div-antrian_title p {
+  font-weight: bold;
+  text-align: center;
+  font-size: 30px;
 }
 
-.div-monitor .div-date {
-  margin: 0;
+.div-top .div-antrian_poli {
+  height: 60px;
+  background-color: #ea8685;
+  margin-bottom: 10px;
+}
+
+.div-top .div-antrian_poli p {
+  font-weight: bold;
+  text-align: center;
+  font-size: 30px;
 }
 
 .card-antrian {
-  margin: 5px;
-  width: 300px;
-}
-
-.card-antrian hr {
-  background-color: #01a3a4;
-}
-
-.div-share_monitor {
-  margin: 20px auto;
+  margin-right: 10px;
+  width: 510px;
+  height: 200px;
   text-align: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  font-size: 15px;
+  background-color: #ffeaa7;
 }
 
-.div-share_monitor p {
-  background-color: #ee5253;
-  padding: 5px;
-  color: white;
-  width: 80px;
+.card-antrian p {
+  font-weight: bold;
+  font-size: 20px;
 }
 
-.div-share_monitor p:hover {
-  opacity: 0.7;
+.card-antrian2 {
+  margin-right: 10px;
+  width: 510px;
+  height: 200px;
+  text-align: center;
+  background-color: #55efc4;
 }
 
-.div-entertainment {
-  margin: 20px auto;
-  height: 300px;
-  width: 800px;
-}
-
-.div-entertainment img {
-  width: 100px;
-  height: 350px;
-  opacity: 0.8;
-  border-radius: 10px;
+.card-antrian2 p {
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .div-time {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-top: 15px;
+  margin-top: 0;
+  background-color: white;
 }
 
-.div-date {
-  background-color: #01a3a4;
-  padding: 5px 10px;
-  color: black;
+.div-time p {
+  font-size: 25px;
+  margin: 10px;
+}
+
+img {
+  border-radius: 1000px;
+  height: 200px;
   width: 200px;
-  text-align: center;
   margin: auto;
+}
+
+h2 {
+  font-size: 20px;
+  color: #8e8a8d;
+  font-weight: bold;
 }
 /*# sourceMappingURL=index.css.map */

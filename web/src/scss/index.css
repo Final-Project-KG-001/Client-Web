@@ -122,8 +122,7 @@
 }
 
 .div-monitor {
-  border-style: solid;
-  margin-top: 140px;
+  margin-top: 100px;
 }
 
 .div-monitor h3 {
@@ -153,7 +152,6 @@
 .div-monitor {
   text-align: center;
   z-index: -1;
-  height: 830px;
 }
 
 .div-monitor .div-active_antrian {

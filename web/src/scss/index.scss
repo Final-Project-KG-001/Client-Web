@@ -115,8 +115,7 @@ $sixth-color:#0097e6;;
 }
 
 .div-monitor{
-  border-style: solid;
-  margin-top:140px;
+  margin-top:100px;
   h3{
     color: $secondary-color;
   }
@@ -141,7 +140,6 @@ $sixth-color:#0097e6;;
 .div-monitor{
   text-align: center;
   z-index: -1;
-  height:830px;
   .div-active_antrian{
     text-align: center;
     margin-top:15px;
@@ -188,21 +186,13 @@ $sixth-color:#0097e6;;
   margin: 20px auto;
   height: 300px;
   width:800px;
-  // background-color: white;
   img{
     width:100px;
     height:350px;
     opacity: 0.8;
     border-radius: 10px;
   }
-  // .carousel-item{
-  //   position: relative;
-  //   // z-index: 1;
-    
-  // }
-  // .div-carousel_quotes{
-  //   position: absolute;
-  // }
+ 
 }
 
 .div-footers{

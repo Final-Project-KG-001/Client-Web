@@ -7,7 +7,7 @@ function Navigation() {
 
     <div className='container-fluid div-nav'>
       <div className="nav-left">
-        <Link to="/">
+        <Link to="/home">
           <p>Agile Hospital</p>
         </Link>
       </div>

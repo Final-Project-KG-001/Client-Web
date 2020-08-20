@@ -1,5 +1,4 @@
 import React from 'react'
-import Date from '../components/Date'
 
 function Dashboard() {
 
@@ -7,7 +6,6 @@ function Dashboard() {
   return (
     <div className='div-information container' >
       <h1>Appointments Table</h1>
-      <Date />
       <table className="table table-striped">
         <thead>
           <tr>
