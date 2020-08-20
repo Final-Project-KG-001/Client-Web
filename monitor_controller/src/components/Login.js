@@ -9,7 +9,7 @@ function Login() {
       <form>
         <div className="form-group">
           <label for="userLogin" />
-          <input type="email" className="form-control" id="userLogin" aria-describedby="emailHelp" placeholder="User login or email" />
+          <input type="email" className="form-control" id="userLogin" aria-describedby="emailHelp" placeholder="Email" />
         </div>
         <div className="form-group">
           <label for="password" />

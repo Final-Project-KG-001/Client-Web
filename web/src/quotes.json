@@ -1,0 +1,27 @@
+[
+  {
+    "entertainments": [
+      {
+        "quotes": "Aku ingin mencintaimu dengan sederhana. Dengan kata yang tak sempat diucapkan kayu kepada api yang menjadikannya abu.",
+        "author": "Sapardi Djoko",
+        "backgorund_image": "https://scontent.ccdn.cloud/image/vivitravels-en/2a68cf40-d33b-424b-b551-0f0f0d956512/maxw-690.jpg",
+        "location": "Raja Ampat, Indonesia",
+        "slide": "Second slide"
+      },
+      {
+        "quotes": "Tak ada yang lebih arif dari hujan bulan Juni, dibiarkannya yang tak terucapkan, diserap akar pohon bunga itu.",
+        "author": "Sapardi Djoko",
+        "backgorund_image": "https://scontent.ccdn.cloud/image/vivitravels-en/a6267e72-321e-489b-bfd3-23183cf0646c/maxw-690.jpg",
+        "location": "Raja Ampat, Indonesia",
+        "slide": "Third slide"
+      },
+      {
+        "quotes": "Barangkali hidup adalah doa yang panjang, dan sunyi adalah minuman keras. Ia merasa Tuhan sedang memandangnya dengan curiga; ia pun bergegas.",
+        "author": "Sapardi Djoko",
+        "backgorund_image": "https://www.savondebali.com/wp-content/uploads/2017/09/31.jpg",
+        "location": "Bali, Indonesia",
+        "slide": "Fourth slide"
+      }
+    ]
+  }
+]

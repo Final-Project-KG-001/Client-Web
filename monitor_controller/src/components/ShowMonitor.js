@@ -1,8 +1,8 @@
 import React from 'react'
-import Date from '../components/Date'
-import AntrianCard from '../components/AntrianCard'
-import Time from '../components/Time'
-import Entertainment from '../components/Entertainment'
+import Date from './Date'
+import AntrianCard from "./AntrianCard"
+import Time from './Time'
+import Entertainment from "./Entertainment"
 
 function ShowMonitor() {
 
@@ -20,10 +20,6 @@ function ShowMonitor() {
           </div>
         </div>
         <Entertainment />
-      </div>
-      <div className="div-share_monitor d-flex">
-        <p style={ { marginRight: '10px' } }>share</p>
-        <p>stop</p>
       </div>
     </>
   )

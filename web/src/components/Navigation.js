@@ -5,7 +5,7 @@ function Navigation() {
 
   return (
 
-    <div className='container div-nav'>
+    <div className='container-fluid div-nav'>
       <div className="nav-left">
         <Link to="/">
           <p>Agile Hospital</p>

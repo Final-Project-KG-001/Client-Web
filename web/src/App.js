@@ -6,10 +6,10 @@ import {
   Switch
 } from 'react-router-dom'
 import HospitalProfile from './Views/HospitalProfile'
-import Login from './Views/Login'
 import Dashboard from './Views/Dashboard'
 import Navigation from './components/Navigation'
 import ShowMonitor from './Views/ShowMonitor';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -17,17 +17,17 @@ function App() {
       <Router>
         <Navigation />
         <Switch>
-          <Route path='/login'>
-            <Login />
-          </Route>
           <Route path='/dashboard'>
             <Dashboard />
           </Route>
           <Route path='/monitor'>
             <ShowMonitor />
           </Route>
-          <Route path='/'>
+          <Route path='/home'>
             <HospitalProfile />
+          </Route>
+          <Route path='/'>
+            <Login />
           </Route>
         </Switch>
       </Router>

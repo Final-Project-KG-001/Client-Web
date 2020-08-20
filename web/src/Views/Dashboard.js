@@ -6,7 +6,7 @@ function Dashboard() {
 
   return (
     <div className='div-information container' >
-      <h1>Table Informasi Pasien</h1>
+      <h1>Appointments Table</h1>
       <Date />
       <table className="table table-striped">
         <thead>

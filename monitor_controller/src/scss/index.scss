@@ -11,57 +11,6 @@ $sixth-color:#0097e6;;
 .App{
   font-family: $font-one;
 }
-.div-nav{
-  p{
-    font-size:15px;
-    color: $sixth-color;
-  }
-  z-index:1;
-  padding-top:20px;
-  display: flex;
-  justify-content: space-between;
-  height: 70px;
-  position: fixed;
-  margin-right:0;
-  top:0;
-  background-color: white;
-  .nav-right{
-    display: flex;
-    p{
-      margin-left:20px;
-    }
-  }
-}
-.div-information{
-  margin-top: 120px;
-  
-  table{
-    border-style: inset;
-    border-color: $fifth-color;
-    background-color: $fifth-color;
-  }
-  h1{
-    color:$sixth-color;
-    opacity:0.9;
-  }
-  h1, h3{
-    text-align:center;
-    margin-bottom: 30px;
-    font-family: $font-two;
-  }
-  td{
-    font-size: 13px;
-  }
-  th{
-    font-size:16px;
-  }
-  .div-date{
-    p{
-      font-size: 20px;
-    }
-    margin-bottom: 30px;
-  }
-}
 
 .div-login{
   font-family: $font-three;
@@ -72,51 +21,8 @@ $sixth-color:#0097e6;;
   }
 }
 
-.div-hospital_profile{
-  margin-top: 130px;
-  font-family: $font-three;
-  .div-profile_info{
-    text-align:center;
-    background-color:$fifth-color;
-    height: 300px;
-  }
-  hr{
-    background-color: $secondary-color;
-  }
-  .image-viruses{
-    opacity: 0.5;
-    outline:none;
-  }
-}
-
-
-
-.div-card_dokter{
-  margin-top:50px;
-  .card-dokter{
-   img{
-     width:250px;
-     height:250px;
-     border-radius: 1000px;
-   }
-  }
-}
-
-.div-card_dokter2{
-  margin-left: 400px;
-  margin-top:50px;
-  .card-dokter{
-   img{
-     width:250px;
-     height:250px;
-     border-radius: 1000px;
-   }
-  }
-}
-
 .div-monitor{
-  border-style: solid;
-  margin-top:140px;
+  margin-top:20px;
   h3{
     color: $secondary-color;
   }
@@ -205,27 +111,6 @@ $sixth-color:#0097e6;;
   // }
 }
 
-.div-footers{
-  height: 250px;
-  background-color:$third-color;
-  margin-bottom: 0;
-  margin-top:50px;
-  justify-content: center;
-  color:$fifth-color;
-  .col-2{
-    margin: auto 0;
-    img{
-      width:40px;
-      height:40px;
-    }
-  }
-  .title-info_footer{
-    margin-top:10px;
-    font-size: 15px;
-    font-weight: bold;
-    color:black;
-  }
-}
 
 .div-time{
   justify-content: space-between;

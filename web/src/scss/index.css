@@ -1,21 +1,26 @@
 .App {
   font-family: "Merriweather", serif;
-  margin-bottom: 50px;
 }
 
 .div-nav {
+  z-index: 1;
+  padding-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 40px;
-  margin-top: 20px;
+  height: 70px;
+  position: fixed;
+  margin-right: 0;
+  top: 0;
+  background-color: white;
 }
 
 .div-nav p {
   font-size: 15px;
+  color: #0097e6;
 }
 
 .div-nav .nav-right {
@@ -26,6 +31,21 @@
 
 .div-nav .nav-right p {
   margin-left: 20px;
+}
+
+.div-information {
+  margin-top: 120px;
+}
+
+.div-information table {
+  border-style: inset;
+  border-color: #cafafe;
+  background-color: #cafafe;
+}
+
+.div-information h1 {
+  color: #0097e6;
+  opacity: 0.9;
 }
 
 .div-information h1, .div-information h3 {
@@ -42,8 +62,17 @@
   font-size: 16px;
 }
 
+.div-information .div-date {
+  margin-bottom: 30px;
+}
+
+.div-information .div-date p {
+  font-size: 20px;
+}
+
 .div-login {
   font-family: "Courgette", cursive;
+  margin-top: 130px;
   width: 300px;
 }
 
@@ -52,47 +81,185 @@
 }
 
 .div-hospital_profile {
-  margin-top: 30px;
+  margin-top: 130px;
   font-family: "Courgette", cursive;
 }
 
-.card-dokter {
-  width: 300px;
+.div-hospital_profile .div-profile_info {
+  text-align: center;
+  background-color: #cafafe;
+  height: 300px;
+}
+
+.div-hospital_profile hr {
+  background-color: #55bcc9;
+}
+
+.div-hospital_profile .image-viruses {
+  opacity: 0.5;
+  outline: none;
 }
 
 .div-card_dokter {
-  width: 300px;
+  margin-top: 50px;
+}
+
+.div-card_dokter .card-dokter img {
+  width: 250px;
+  height: 250px;
+  border-radius: 1000px;
+}
+
+.div-card_dokter2 {
+  margin-left: 400px;
+  margin-top: 50px;
+}
+
+.div-card_dokter2 .card-dokter img {
+  width: 250px;
+  height: 250px;
+  border-radius: 1000px;
 }
 
 .div-monitor {
   border-style: solid;
+  margin-top: 140px;
+}
+
+.div-monitor h3 {
+  color: #55bcc9;
+}
+
+.div-monitor h1 {
+  font-weight: bolder;
+  font-size: 50px;
+}
+
+.div-monitor h2 {
+  font-weight: bolder;
+  font-size: 40px;
+  color: #ee5253;
+}
+
+.div-monitor p {
+  font-size: 20px;
+}
+
+.div-monitor h5 {
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .div-monitor {
   text-align: center;
+  z-index: -1;
+  height: 830px;
 }
 
 .div-monitor .div-active_antrian {
   text-align: center;
+  margin-top: 15px;
+}
+
+.div-monitor .div-active_antrian h3 {
+  color: #0097e6;
+}
+
+.div-monitor .div-antrian_card {
+  z-index: -1;
+  margin: auto;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.div-monitor .div-date {
+  margin: 0;
 }
 
 .card-antrian {
-  margin: 10px;
+  margin: 5px;
   width: 300px;
+}
+
+.card-antrian hr {
+  background-color: #01a3a4;
+}
+
+.div-share_monitor {
+  margin: 20px auto;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 15px;
+}
+
+.div-share_monitor p {
+  background-color: #ee5253;
+  padding: 5px;
+  color: white;
+  width: 80px;
+}
+
+.div-share_monitor p:hover {
+  opacity: 0.7;
+}
+
+.div-entertainment {
+  margin: 20px auto;
+  height: 300px;
+  width: 800px;
+}
+
+.div-entertainment img {
+  width: 100px;
+  height: 350px;
+  opacity: 0.8;
+  border-radius: 10px;
+}
+
+.div-footers {
+  height: 250px;
+  background-color: #01a3a4;
+  margin-bottom: 0;
+  margin-top: 50px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #cafafe;
+}
+
+.div-footers .col-2 {
+  margin: auto 0;
+}
+
+.div-footers .col-2 img {
+  width: 40px;
+  height: 40px;
+}
+
+.div-footers .title-info_footer {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
 }
 
 .div-time {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-top: 15px;
 }
 
-.div-share_monitor {
-  margin: auto;
+.div-date {
+  background-color: #01a3a4;
+  padding: 5px 10px;
+  color: black;
+  width: 200px;
   text-align: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  font-size: 15px;
+  margin: auto;
 }
 /*# sourceMappingURL=index.css.map */
