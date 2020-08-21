@@ -1,16 +1,17 @@
 $font-one: 'Merriweather', serif;
 $font-two: 'Playfair Display SC', serif;
 $font-three: 'Courgette', cursive;
-$primary-color: #ecf0f1;
-$secondary-color: #55bcc9;
-$third-color:#01a3a4;
-$fourth-color:#ee5253;
-$fifth-color:#cafafe;
-$sixth-color:#0097e6;;
+$primary-color: #eae7dc;
+$secondary-color: #e66767;;
+$third-color:#ea8685;
+$fourth-color:#ffeaa7;
+$fifth-color:#55efc4;
+$sixth-color:#e85a4f;
 
 .App{
   font-family: $font-one;
 }
+
 .div-nav{
   p{
     font-size:15px;
@@ -36,9 +37,10 @@ $sixth-color:#0097e6;;
   margin-top: 120px;
   
   table{
-    border-style: inset;
-    border-color: $fifth-color;
-    background-color: $fifth-color;
+    border-style: outset;
+    border-width: 5px;
+    border-color: $primary-color;
+    background-color: white;
   }
   h1{
     color:$sixth-color;
@@ -137,63 +139,62 @@ $sixth-color:#0097e6;;
   }
 }
 
-.div-monitor{
+.div-controller{
+  margin-top:150px;
   text-align: center;
   z-index: -1;
-  .div-active_antrian{
-    text-align: center;
-    margin-top:15px;
-    h3{
-      color: $sixth-color;
-    }
-  }
   .div-antrian_card{
     z-index: -1;
     margin: auto;
     width:100%;
     justify-content: center;
-  }
-  .div-date{
-    margin: 0
-  }
-}
-
-.card-antrian{
-  margin:5px;
-  width:300px;
-  hr{
-    background-color: $third-color
-  }
-}
-
-.div-share_monitor{
-  margin: 20px auto;
-  text-align: center;
-  justify-content: center;
-  font-size:15px;
-  p{
-    background-color:$fourth-color;
-    padding:5px;
-    color:white;
-    width:80px;
-    &:hover{
-      opacity:0.7;
+    .card-poli{
+      margin-top:100px;
+      margin:5px;
+      width:300px;
+      hr{
+        background-color: $third-color
+      }
+      .button_controller{
+        margin: 20px auto;
+        text-align: center;
+        justify-content: center;
+        font-size:15px;
+        p{
+          margin-right:10px;
+          background-color:$secondary-color;
+          padding:5px;
+          margin-right:10px;
+          color:white;
+          width:80px;
+          &:hover{
+            opacity:0.7;
+          }
+        }
+      }
     }
   }
 }
 
-.div-entertainment{
-  margin: 20px auto;
-  height: 300px;
-  width:800px;
-  img{
-    width:100px;
-    height:350px;
-    opacity: 0.8;
-    border-radius: 10px;
-  }
- 
-}
+
+
+// .div-share_monitor{
+//   margin: 20px auto;
+//   text-align: center;
+//   justify-content: center;
+//   font-size:15px;
+//   p{
+//     background-color:$secondary-color;
+//     padding:5px;
+//     margin-right:10px;
+//     color:white;
+//     width:80px;
+//     &:hover{
+//       opacity:0.7;
+//     }
+//   }
+// }
+
 
 .div-footers{
   height: 250px;

@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import AntrianCard from "./AntrianCard"
-import Entertainment from "./Entertainment"
 import DokterCard from './DokterCard'
-import Navigation from './Navigation';
 
 
 function ShowMonitor() {
-  const now = new Date().toLocaleTimeString();
-  const [ time, setTime ] = useState(now)
-  const [ date, setDate ] = useState('')
+  const [ time, setTime ] = useState('')
 
   useEffect(() => {
     setInterval(updateTime, 1000)

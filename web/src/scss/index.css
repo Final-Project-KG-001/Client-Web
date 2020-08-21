@@ -20,7 +20,7 @@
 
 .div-nav p {
   font-size: 15px;
-  color: #0097e6;
+  color: #e85a4f;
 }
 
 .div-nav .nav-right {
@@ -38,13 +38,14 @@
 }
 
 .div-information table {
-  border-style: inset;
-  border-color: #cafafe;
-  background-color: #cafafe;
+  border-style: outset;
+  border-width: 5px;
+  border-color: #eae7dc;
+  background-color: white;
 }
 
 .div-information h1 {
-  color: #0097e6;
+  color: #e85a4f;
   opacity: 0.9;
 }
 
@@ -87,12 +88,12 @@
 
 .div-hospital_profile .div-profile_info {
   text-align: center;
-  background-color: #cafafe;
+  background-color: #55efc4;
   height: 300px;
 }
 
 .div-hospital_profile hr {
-  background-color: #55bcc9;
+  background-color: #e66767;
 }
 
 .div-hospital_profile .image-viruses {
@@ -126,7 +127,7 @@
 }
 
 .div-monitor h3 {
-  color: #55bcc9;
+  color: #e66767;
 }
 
 .div-monitor h1 {
@@ -137,7 +138,7 @@
 .div-monitor h2 {
   font-weight: bolder;
   font-size: 40px;
-  color: #ee5253;
+  color: #ffeaa7;
 }
 
 .div-monitor p {
@@ -149,21 +150,13 @@
   font-weight: bold;
 }
 
-.div-monitor {
+.div-controller {
+  margin-top: 150px;
   text-align: center;
   z-index: -1;
 }
 
-.div-monitor .div-active_antrian {
-  text-align: center;
-  margin-top: 15px;
-}
-
-.div-monitor .div-active_antrian h3 {
-  color: #0097e6;
-}
-
-.div-monitor .div-antrian_card {
+.div-controller .div-antrian_card {
   z-index: -1;
   margin: auto;
   width: 100%;
@@ -172,20 +165,17 @@
           justify-content: center;
 }
 
-.div-monitor .div-date {
-  margin: 0;
-}
-
-.card-antrian {
+.div-controller .div-antrian_card .card-poli {
+  margin-top: 100px;
   margin: 5px;
   width: 300px;
 }
 
-.card-antrian hr {
-  background-color: #01a3a4;
+.div-controller .div-antrian_card .card-poli hr {
+  background-color: #ea8685;
 }
 
-.div-share_monitor {
+.div-controller .div-antrian_card .card-poli .button_controller {
   margin: 20px auto;
   text-align: center;
   -webkit-box-pack: center;
@@ -194,39 +184,28 @@
   font-size: 15px;
 }
 
-.div-share_monitor p {
-  background-color: #ee5253;
+.div-controller .div-antrian_card .card-poli .button_controller p {
+  margin-right: 10px;
+  background-color: #e66767;
   padding: 5px;
+  margin-right: 10px;
   color: white;
   width: 80px;
 }
 
-.div-share_monitor p:hover {
+.div-controller .div-antrian_card .card-poli .button_controller p:hover {
   opacity: 0.7;
-}
-
-.div-entertainment {
-  margin: 20px auto;
-  height: 300px;
-  width: 800px;
-}
-
-.div-entertainment img {
-  width: 100px;
-  height: 350px;
-  opacity: 0.8;
-  border-radius: 10px;
 }
 
 .div-footers {
   height: 250px;
-  background-color: #01a3a4;
+  background-color: #ea8685;
   margin-bottom: 0;
   margin-top: 50px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  color: #cafafe;
+  color: #55efc4;
 }
 
 .div-footers .col-2 {
@@ -253,7 +232,7 @@
 }
 
 .div-date {
-  background-color: #01a3a4;
+  background-color: #ea8685;
   padding: 5px 10px;
   color: black;
   width: 200px;

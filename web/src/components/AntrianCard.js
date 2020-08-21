@@ -1,41 +1,68 @@
 import React from 'react'
+import { useQuery, gql } from '@apollo/client'
 
-function AntrianCard() {
+
+
+const GET_DATA = gql`
+  query GetData{
+    dentals{
+      _id
+     appointment{
+       status
+       queueNumber
+     }
+    },
+    generals{
+      _id
+     appointment{
+       status
+       queueNumber
+     }
+    }
+}
+`
+
+function AntrianCard({ doctor }) {
+  const { loading, error, data } = useQuery(GET_DATA)
+  let dentalOnProcess = []
+  let generalOnProcess = []
+
+  if (data) {
+    dentalOnProcess = data.dentals.filter(dental => dental.appointment.status === 'onProcess')
+
+    generalOnProcess = data.generals.filter(general => general.appointment.status === 'onProcess')
+
+    // console.log(data)
+  }
+
+
+  function handlePrevious(e) {
+    e.preventDefault()
+    console.log('Prev got click')
+  }
+
+  function handleNext(e) {
+    e.preventDefault()
+    console.log('Next got click')
+  }
 
   return (
     <>
-      <div className="card card-antrian d-flex">
-        <div className="div-active_antrian">
-          <h3>Antrian Selanjutnya:</h3>
-          <h1>008</h1>
+      { data &&
+        <div className="card card-poli d-flex">
+          <div className="card-body">
+            <h3 className="card-title">Poli { doctor.polyclinic }</h3>
+            <h5 className="card-title">{ doctor.name }</h5>
+            <hr />
+            <p>Nomor Antrian:</p>
+            <h2>{ doctor.polyclinic === 'gigi' ? dentalOnProcess[ 0 ].appointment.queueNumber : generalOnProcess[ 0 ].appointment.queueNumber }</h2>
+          </div>
+          <div className="button_controller d-flex">
+            <p onClick={ (e) => handlePrevious(e) }>Previous</p>
+            <p onClick={ (e) => handleNext(e) }>Next</p>
+          </div>
         </div>
-        <div className="card-body">
-          <p className="card-title">Poli Umum</p>
-          <h5 className="card-title">Dr. Fatimah Hidayani</h5>
-          <hr />
-          <p>Nomor Antrian:</p>
-          <h2>006</h2>
-        </div>
-        <div className="div-share_monitor d-flex">
-          <p style={ { marginRight: '10px' } }>Next</p>
-        </div>
-      </div>
-      <div className="card card-antrian d-flex">
-        <div className="div-active_antrian">
-          <h3>Antrian Selanjutnya:</h3>
-          <h1>008</h1>
-        </div>
-        <div className="card-body">
-          <p className="card-title">Poli Gigi</p>
-          <h5 className="card-title">Dr. Hari Tungadi</h5>
-          <hr />
-          <p>Nomor Antrian:</p>
-          <h2>006</h2>
-        </div>
-        <div className="div-share_monitor d-flex">
-          <p style={ { marginRight: '10px' } }>Next</p>
-        </div>
-      </div>
+      }
     </>
   )
 }

@@ -1,11 +1,11 @@
 $font-one: 'Merriweather', serif;
 $font-two: 'Playfair Display SC', serif;
 $font-three: 'Courgette', cursive;
-$primary-color: #ecf0f1;
-$secondary-color: #55bcc9;
-$third-color:#01a3a4;
-$fourth-color:#ee5253;
-$fifth-color:#cafafe;
+$primary-color: #eae7dc;
+$secondary-color: #e66767;;
+$third-color:#ea8685;
+$fourth-color:#ffeaa7;
+$fifth-color:#55efc4;
 $sixth-color:#0097e6;;
 
 .App{
@@ -36,7 +36,7 @@ $sixth-color:#0097e6;;
   text-align: center;
 
   .div-antrian_number{
-    background-color: #e66767;
+    background-color: $secondary-color;
     height: 100px;
     margin-bottom: 10px;
     p{
@@ -47,7 +47,7 @@ $sixth-color:#0097e6;;
   }
   .div-antrian_title{
     height: 60px;
-    background-color: #ea8685;
+    background-color: $third-color;
     margin-bottom: 10px;
     p{
       font-weight: bold;
@@ -57,7 +57,7 @@ $sixth-color:#0097e6;;
   }
   .div-antrian_poli{
     height: 60px;
-    background-color: #ea8685;
+    background-color: $third-color;
     margin-bottom: 10px;
     p{
       font-weight: bold;
@@ -73,7 +73,7 @@ $sixth-color:#0097e6;;
   width:510px;
   height:200px;
   text-align: center;
-  background-color: #ffeaa7;
+  background-color: $fourth-color;
   p{
     font-weight: bold;
     font-size: 20px;
@@ -85,7 +85,7 @@ $sixth-color:#0097e6;;
   width:510px;
   height:200px;
   text-align: center;
-  background-color: #55efc4;
+  background-color: $fifth-color;
   p{
     font-weight: bold;
     font-size: 20px;

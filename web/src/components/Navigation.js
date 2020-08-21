@@ -12,11 +12,11 @@ function Navigation() {
         </Link>
       </div>
       <div className="nav-right">
-        <Link to="/dashboard">
-          <p>Information</p>
+        <Link to="/appointment">
+          <p>Appointment</p>
         </Link>
-        <Link to="/monitor">
-          <p>Monitor</p>
+        <Link to="/controller">
+          <p>Controller</p>
         </Link>
       </div>
     </div>
