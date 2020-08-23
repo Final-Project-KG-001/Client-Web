@@ -1,68 +1,139 @@
-import React from 'react'
-import { useQuery, gql } from '@apollo/client'
+import React, { useState, useEffect } from 'react'
+import { useQuery, gql, useMutation } from '@apollo/client'
+import Navigation from './Navigation'
 
 
 
 const GET_DATA = gql`
   query GetData{
-    dentals{
+    appointments{
       _id
-     appointment{
-       status
-       queueNumber
-     }
-    },
-    generals{
-      _id
-     appointment{
-       status
-       queueNumber
-     }
+      userId
+      doctorId
+      queueNumber
+      status
+      user{
+        name
+      }
+      doctor{
+        name
+      }
     }
 }
 `
 
+const SET_STATUS = gql`
+  mutation SetStatus($_id:ID,$status:String){
+    changeAppointmentStatus(_id:$_id, status:$status){
+      message
+      status
+  }
+}
+`
+
+
 function AntrianCard({ doctor }) {
   const { loading, error, data } = useQuery(GET_DATA)
-  let dentalOnProcess = []
-  let generalOnProcess = []
+  const [ changeAppointmentStatus ] = useMutation(SET_STATUS)
+  const [ onProcess, setOnProcess ] = useState(0)
+  const [ idChange, setIdChange ] = useState(null)
+  const [ isAllDone, setIsAllDone ] = useState(false)
 
-  if (data) {
-    dentalOnProcess = data.dentals.filter(dental => dental.appointment.status === 'onProcess')
+  function handleNext() {
+    if (idChange) {
+      changeAppointmentStatus({
+        variables: {
+          _id: idChange,
+          status: "done"
+        },
+        refetchQueries: [ "GetData" ]
+      })
+    }
 
-    generalOnProcess = data.generals.filter(general => general.appointment.status === 'onProcess')
+    if (data) {
+      const nextOnProcess = data.appointments.find(appointment => (
+        appointment.doctorId === doctor._id && appointment.status === "waiting"
+      ))
+      if (nextOnProcess) {
+        changeAppointmentStatus({
+          variables: {
+            _id: nextOnProcess._id,
+            status: "on process"
+          },
+          refetchQueries: [ "GetData" ]
+        })
+      } else {
+        setOnProcess(0)
+        setIsAllDone(true)
+      }
 
-    // console.log(data)
+    }
+
+
+
   }
 
+  function handlePrevious() {
 
-  function handlePrevious(e) {
-    e.preventDefault()
-    console.log('Prev got click')
   }
 
-  function handleNext(e) {
-    e.preventDefault()
-    console.log('Next got click')
+  function handleStart() {
+    if (data) {
+      const findOnProcess = data.appointments.find(appointment => (
+        appointment.queueNumber === 1 && appointment.doctorId === doctor._id && appointment.status === "waiting"
+      ))
+      if (findOnProcess) {
+
+        changeAppointmentStatus({
+          variables: {
+            _id: findOnProcess._id,
+            status: "on process"
+          },
+          refetchQueries: [ "GetData" ]
+        })
+      }
+    }
+
   }
+
+  useEffect(() => {
+    if (data) {
+      const onProcessFound = data.appointments.find(appointment => (
+        appointment.doctorId === doctor._id && appointment.status === "on process"
+      ))
+
+      if (onProcessFound) {
+        setOnProcess(onProcessFound.queueNumber)
+        setIdChange(onProcessFound._id)
+      }
+    }
+  })
 
   return (
     <>
-      { data &&
+      <Navigation />
+      <div>
         <div className="card card-poli d-flex">
           <div className="card-body">
             <h3 className="card-title">Poli { doctor.polyclinic }</h3>
             <h5 className="card-title">{ doctor.name }</h5>
             <hr />
             <p>Nomor Antrian:</p>
-            <h2>{ doctor.polyclinic === 'gigi' ? dentalOnProcess[ 0 ].appointment.queueNumber : generalOnProcess[ 0 ].appointment.queueNumber }</h2>
+
+            {
+              doctor.polyclinic === 'umum' ? <h1>A { onProcess }</h1> : <h1>B { onProcess }</h1>
+            }
+
+            <hr />
           </div>
           <div className="button_controller d-flex">
-            <p onClick={ (e) => handlePrevious(e) }>Previous</p>
-            <p onClick={ (e) => handleNext(e) }>Next</p>
+            <p onClick={ () => handlePrevious() }>Previous</p>
+            <p onClick={ () => handleNext() }>Next</p>
+            <p onClick={ (e) => handleStart(e) }>Start</p>
           </div>
         </div>
-      }
+        { isAllDone && <p style={ { color: '#24a19c' } }>All done. Tidak ada daftar pasien!!</p> }
+      </div>
     </>
   )
 }

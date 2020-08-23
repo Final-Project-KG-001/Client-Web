@@ -24,8 +24,6 @@ function Controller() {
       { error && <Error /> }
       { data &&
         <div className="coba-nyambung container-fluid div-controller">
-          <div className="d-flex div-time">
-          </div>
           <div className="container div-antrian_card d-flex">
             {
               data.doctors.map(doctor => (

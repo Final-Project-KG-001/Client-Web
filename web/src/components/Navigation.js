@@ -18,6 +18,9 @@ function Navigation() {
         <Link to="/controller">
           <p>Controller</p>
         </Link>
+        <Link to="/">
+          <p>Logout</p>
+        </Link>
       </div>
     </div>
   )

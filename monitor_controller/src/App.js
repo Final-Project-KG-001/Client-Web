@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom'
 import Login from './components/Login'
 import ShowMonitor from './components/ShowMonitor'
-import Navigation from './components/Navigation'
 import { ApolloProvider } from '@apollo/client'
 import client from './config/apolloClient'
 
@@ -17,7 +16,6 @@ function App() {
     <ApolloProvider client={ client }>
       <div className="App">
         <Router>
-          <Navigation />
           <Switch>
             <Route path="/monitor">
               <ShowMonitor />

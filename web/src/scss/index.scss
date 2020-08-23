@@ -1,21 +1,23 @@
-$font-one: 'Merriweather', serif;
-$font-two: 'Playfair Display SC', serif;
-$font-three: 'Courgette', cursive;
+$font-one: 'Londrina Outline', cursive;
+$font-two: 'Merienda', cursive;
+$font-three: 'Monoton', cursive;
+$font-four:'Concert One', cursive;
 $primary-color: #eae7dc;
-$secondary-color: #e66767;;
+$secondary-color: #e66767;
 $third-color:#ea8685;
 $fourth-color:#ffeaa7;
 $fifth-color:#55efc4;
-$sixth-color:#e85a4f;
+$sixth-color:#0097e6;
+$seventh-color:#838383;
 
 .App{
-  font-family: $font-one;
+  font-family: $font-two;
 }
 
 .div-nav{
   p{
-    font-size:15px;
-    color: $sixth-color;
+    font-size:10px;
+    color: $seventh-color;
   }
   z-index:1;
   padding-top:20px;
@@ -33,6 +35,7 @@ $sixth-color:#e85a4f;
     }
   }
 }
+
 .div-information{
   margin-top: 120px;
   
@@ -40,37 +43,52 @@ $sixth-color:#e85a4f;
     border-style: outset;
     border-width: 5px;
     border-color: $primary-color;
-    background-color: white;
+    background-color: $seventh-color;
   }
+  
   h1{
-    color:$sixth-color;
-    opacity:0.9;
-  }
-  h1, h3{
+    color:$secondary-color;
+    font-family: $font-four;
     text-align:center;
     margin-bottom: 30px;
-    font-family: $font-two;
+    font-size: 40px;
   }
   td{
     font-size: 13px;
   }
   th{
-    font-size:16px;
+    font-size:18px;
+    font-family: $font-four;
+    color: #eae7dc;
   }
   .div-date{
-    p{
-      font-size: 20px;
-    }
+    font-weight: normal;
     margin-bottom: 30px;
+    font-size: 20px;
+    font-family: $font-two;
+    text-align: center;
+    width:500px;
+    border-radius: 20px;
   }
 }
 
 .div-login{
-  font-family: $font-three;
+  padding:30px;
+  border-radius: 20px;
+  opacity:0.5;
+  opacity: 0.9;
+  font-family: $font-two;
   margin-top: 130px;
+  justify-content: center;
   width:300px;
+  box-shadow: 10px 10px 8px #6e6d6d;
+  background-color: #dee3e2;
   button{
     width: 100%;
+  }
+  .image-login{
+    margin: auto;
+    text-align: center;
   }
 }
 
@@ -175,25 +193,6 @@ $sixth-color:#e85a4f;
     }
   }
 }
-
-
-
-// .div-share_monitor{
-//   margin: 20px auto;
-//   text-align: center;
-//   justify-content: center;
-//   font-size:15px;
-//   p{
-//     background-color:$secondary-color;
-//     padding:5px;
-//     margin-right:10px;
-//     color:white;
-//     width:80px;
-//     &:hover{
-//       opacity:0.7;
-//     }
-//   }
-// }
 
 
 .div-footers{

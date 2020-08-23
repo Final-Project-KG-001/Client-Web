@@ -1,20 +1,35 @@
 .App {
-  font-family: "Merriweather", serif;
+  font-family: "Merienda", cursive;
   background-color: #eae7dc;
 }
 
 .div-login {
-  font-family: "Courgette", cursive;
+  padding: 30px;
+  border-radius: 20px;
+  opacity: 0.5;
+  opacity: 0.9;
+  font-family: "Merienda", cursive;
   margin-top: 130px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 300px;
+  -webkit-box-shadow: 10px 10px 8px #6e6d6d;
+          box-shadow: 10px 10px 8px #6e6d6d;
+  background-color: #dee3e2;
 }
 
 .div-login button {
   width: 100%;
 }
 
+.div-login .image-login {
+  margin: auto;
+  text-align: center;
+}
+
 .container-monitor {
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .div-bottom {
@@ -112,5 +127,15 @@ h2 {
   font-size: 20px;
   color: #8e8a8d;
   font-weight: bold;
+}
+
+.hover-logout:hover {
+  font-size: 10px;
+  color: #ea8685;
+}
+
+.hover-logout {
+  font-size: 10px;
+  color: #eae7dc;
 }
 /*# sourceMappingURL=index.css.map */

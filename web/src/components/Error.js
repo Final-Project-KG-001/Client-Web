@@ -4,7 +4,7 @@ function Error() {
 
   return (
 
-    <h4 style={ { color: "red", fontSize: '30px', marginTop: '10px' } }>Error, cannot load data at the moment!</h4>
+    <h4 style={ { color: "red", fontSize: '20px' } }>Error, cannot load data at the moment!</h4>
   )
 }
 

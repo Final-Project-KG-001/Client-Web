@@ -1,5 +1,5 @@
 .App {
-  font-family: "Merriweather", serif;
+  font-family: "Merienda", cursive;
 }
 
 .div-nav {
@@ -19,8 +19,8 @@
 }
 
 .div-nav p {
-  font-size: 15px;
-  color: #e85a4f;
+  font-size: 10px;
+  color: #838383;
 }
 
 .div-nav .nav-right {
@@ -41,18 +41,15 @@
   border-style: outset;
   border-width: 5px;
   border-color: #eae7dc;
-  background-color: white;
+  background-color: #838383;
 }
 
 .div-information h1 {
-  color: #e85a4f;
-  opacity: 0.9;
-}
-
-.div-information h1, .div-information h3 {
+  color: #e66767;
+  font-family: "Concert One", cursive;
   text-align: center;
   margin-bottom: 30px;
-  font-family: "Playfair Display SC", serif;
+  font-size: 40px;
 }
 
 .div-information td {
@@ -60,30 +57,49 @@
 }
 
 .div-information th {
-  font-size: 16px;
+  font-size: 18px;
+  font-family: "Concert One", cursive;
+  color: #eae7dc;
 }
 
 .div-information .div-date {
+  font-weight: normal;
   margin-bottom: 30px;
-}
-
-.div-information .div-date p {
   font-size: 20px;
+  font-family: "Merienda", cursive;
+  text-align: center;
+  width: 500px;
+  border-radius: 20px;
 }
 
 .div-login {
-  font-family: "Courgette", cursive;
+  padding: 30px;
+  border-radius: 20px;
+  opacity: 0.5;
+  opacity: 0.9;
+  font-family: "Merienda", cursive;
   margin-top: 130px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 300px;
+  -webkit-box-shadow: 10px 10px 8px #6e6d6d;
+          box-shadow: 10px 10px 8px #6e6d6d;
+  background-color: #dee3e2;
 }
 
 .div-login button {
   width: 100%;
 }
 
+.div-login .image-login {
+  margin: auto;
+  text-align: center;
+}
+
 .div-hospital_profile {
   margin-top: 130px;
-  font-family: "Courgette", cursive;
+  font-family: "Monoton", cursive;
 }
 
 .div-hospital_profile .div-profile_info {

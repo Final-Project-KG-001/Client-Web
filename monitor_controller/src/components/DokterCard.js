@@ -9,14 +9,14 @@ function DokterCard() {
         <div className="carousel-inner">
           <div className="carousel-item active">
             <img className="d-block" src="https://asset.kompas.com/crops/nO1skkIdLelqzqC3fEIOFQpxdUo=/338x0:1850x756/750x500/data/photo/2019/05/07/823404649.jpg" alt="First slide" />
-            <div class="card-body">
-              <h2 class="card-title">Dr. Fatimah Hidayani</h2>
+            <div className="card-body">
+              <h2 className="card-title">Dr. Fatimah Hidayani</h2>
             </div>
           </div>
           <div className="carousel-item">
             <img className="d-block" src="https://v.fastcdn.co/u/2fdba1a6/23428726-0-Assoc.-Prof.-Dr.-Han.jpg" alt="Second slide" />
-            <div class="card-body">
-              <h2 class="card-title">Dr. Hary Tungadi</h2>
+            <div className="card-body">
+              <h2 className="card-title">Dr. Hary Tungadi</h2>
             </div>
           </div>
         </div>

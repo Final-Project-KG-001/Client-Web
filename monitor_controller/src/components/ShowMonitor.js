@@ -1,45 +1,67 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import AntrianCard from "./AntrianCard"
 import DokterCard from './DokterCard'
+import { gql, useQuery } from '@apollo/client'
+import Loading from '../components/Loading'
+import Error from '../components/Error'
+import Navigation from '../components/Navigation'
+
+const GET_DOCTOR = gql`
+  query GetDoctor{
+    doctors{
+      _id
+      name
+      polyclinic
+    }
+}
+`
 
 
 function ShowMonitor() {
-  const [ time, setTime ] = useState('')
 
-  useEffect(() => {
-    setInterval(updateTime, 1000)
-    function updateTime() {
-      const newTime = new Date().toLocaleTimeString();
-      setTime(newTime)
-    }
-  })
+  const { loading, error, data } = useQuery(GET_DOCTOR)
+
   return (
     <>
-      <div className="div-time container-fluid">
-        <p>{ time }</p>
-        <p></p>
-      </div>
-      <div className="container container-monitor">
-        <div className="container d-flex div-top">
-          <div className="col-5 div-antrian_kiri">
-            <DokterCard />
+      <Navigation />
+      { loading && <Loading /> }
+      { error && <Error /> }
+      { data &&
+        <div className="container container-monitor">
+          <div className="container d-flex div-top">
+            <div className="col-5 div-antrian_kiri">
+              <DokterCard />
+            </div>
+            <div className="col-7 div-antrian_kanan">
+              <div className="div-antrian_title">
+                <p>Antrian</p>
+              </div>
+              <div className="div-antrian_number">
+                <p>A 4</p>
+              </div>
+              <div className="div-antrian_poli">
+                <p>Poli Umum</p>
+              </div>
+            </div>
           </div>
-          <div className="col-7 div-antrian_kanan">
-            <div className="div-antrian_title">
-              <p>Antrian</p>
+          <div className="container d-flex div-bottom">
+            <div className="bottom-left col-5">
+              <h1 style={ { margin: '30px auto', textAlign: 'center' } }>Hospital Brief Info</h1>
             </div>
-            <div className="div-antrian_number">
-              <p>006</p>
-            </div>
-            <div className="div-antrian_poli">
-              <p>Poli Umum</p>
+            <div className="bottom-right col-7 d-flex">
+              {
+                data &&
+                data.doctors.map((doctor) => (
+                  <AntrianCard
+                    key={ doctor._id }
+                    doctor={ doctor }
+                  />
+                ))
+              }
             </div>
           </div>
         </div>
-        <div className="container col-7 d-flex div-bottom">
-          <AntrianCard />
-        </div>
-      </div>
+      }
 
     </>
   )

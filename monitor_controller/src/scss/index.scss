@@ -1,29 +1,41 @@
-$font-one: 'Merriweather', serif;
-$font-two: 'Playfair Display SC', serif;
-$font-three: 'Courgette', cursive;
+$font-one: 'Londrina Outline', cursive;
+$font-two: 'Merienda', cursive;
+$font-three: 'Monoton', cursive;
 $primary-color: #eae7dc;
 $secondary-color: #e66767;;
 $third-color:#ea8685;
 $fourth-color:#ffeaa7;
 $fifth-color:#55efc4;
-$sixth-color:#0097e6;;
+$sixth-color:#0097e6;
+$seventh-color:#838383;
 
 .App{
-  font-family: $font-one;
+  font-family: $font-two;
   background-color: #eae7dc;
 }
   
 .div-login{
-  font-family: $font-three;
+  padding:30px;
+  border-radius: 20px;
+  opacity:0.5;
+  opacity: 0.9;
+  font-family: $font-two;
   margin-top: 130px;
+  justify-content: center;
   width:300px;
+  box-shadow: 10px 10px 8px #6e6d6d;
+  background-color: #dee3e2;
   button{
     width: 100%;
+  }
+  .image-login{
+    margin: auto;
+    text-align: center;
   }
 }
 
 .container-monitor{
-  margin-top:20px;
+  margin-top:40px;
 }
 
 .div-bottom{
@@ -113,6 +125,15 @@ h2{
   color:#8e8a8d;
   font-weight: bold;
 
+}
+
+.hover-logout:hover{
+  font-size:10px;
+  color:$third-color;
+}
+.hover-logout{
+  font-size:10px;
+  color: $primary-color;
 }
  
     

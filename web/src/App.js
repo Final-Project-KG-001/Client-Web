@@ -18,7 +18,6 @@ function App() {
     <ApolloProvider client={ client }>
       <div className="App">
         <Router>
-          <Navigation />
           <Switch>
             <Route path='/appointment'>
               <Appointment />

@@ -1,67 +1,53 @@
 import React from 'react'
 import { gql, useQuery } from '@apollo/client'
-import Loading from '../components/Loading'
-import Error from '../components/Error'
 
-const GET_APPOINTMENTS = gql`
-  query GetAppointments{
+const GET_DATA = gql`
+  query GetData{
     appointments{
-      userId
-      doctorId
+      _id
       queueNumber
       status
-    },
-    doctors{
-      _id
-      name
-      polyclinic
+      doctorId
     }
 }
 `
 
-function AntrianCard() {
-  // const [ doctor, setDoctor ] = useState('')
-  const { loading, error, data } = useQuery(GET_APPOINTMENTS)
+function AntrianCard({ doctor }) {
+  const { loading, error, data } = useQuery(GET_DATA)
+  let findOnProcess = null
+
+  if (data) {
+    findOnProcess = data.appointments.find(appointment => (appointment.doctorId === doctor._id && appointment.status === "on process"))
+  }
+
 
   return (
-    <>
-      { loading && <Loading /> }
-      { error && <Error /> }
-      {/* { data &&
-        data.appointments.filter(e => {
-          e.status === 'onProcess' &&
-            setDoctor(data.doctors.filter(d => d._id === e.doctorId))
-            <div className= "card card-antrian d-flex" >
-              <div className="card-body">
 
-                <p>Nomor Antrian:</p>
-                <h1>{ e.queueNumber }</h1>
-                <hr />
-                <p className="card-title">Poli { doctor.polyclinic }</p>
-                <h5 className="card-title">{ doctor.name }</h5>
-              </div>
-            </div>
-        })
-      } */}
-      <div className="card card-antrian d-flex">
-        <div className="card-body">
-          <p>Nomor Antrian:</p>
-          <h1>006</h1>
-          <hr />
-          <p className="card-title">Poli Umum</p>
-          <h5 className="card-title">Dr.Fatimah Hidayani</h5>
-        </div>
+    <div
+      key={ doctor._id }
+      className={ doctor.polyclinic === "umum" ? "card card-antrian d-flex" : "card card-antrian2 d-flex" }>
+      <div className="card-body">
+        <p>Nomor Antrian:</p>
+        { doctor.polyclinic === "umum" &&
+          <>
+            { data &&
+              <h1>A { findOnProcess ? findOnProcess.queueNumber : 0 }</h1>
+            }
+          </>
+        }
+        { doctor.polyclinic === "gigi" &&
+          <>
+            { data &&
+              <h1>B { findOnProcess ? findOnProcess.queueNumber : 0 }</h1>
+            }
+          </>
+        }
+
+        <hr />
+        <p className="card-title">Poli { doctor.polyclinic }</p>
+        <h5 className="card-title">{ doctor.name }</h5>
       </div>
-      <div className="card card-antrian2 d-flex">
-        <div className="card-body">
-          <p>Nomor Antrian:</p>
-          <h1>007</h1>
-          <hr />
-          <p className="card-title">Poli Gigi</p>
-          <h5 className="card-title">Dr.Hary Tungadi</h5>
-        </div>
-      </div>
-    </>
+    </div>
   )
 }
 
