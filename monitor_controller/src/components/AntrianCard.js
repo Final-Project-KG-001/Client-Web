@@ -20,7 +20,6 @@ function AntrianCard({ doctor }) {
     findOnProcess = data.appointments.find(appointment => (appointment.doctorId === doctor._id && appointment.status === "on process"))
   }
 
-
   return (
 
     <div
