@@ -1,5 +1,5 @@
-import React from 'react'
-import { gql, useQuery } from '@apollo/client'
+import React, {useEffect} from 'react'
+import { gql, useQuery, useSubscription } from '@apollo/client'
 
 const GET_DATA = gql`
   query GetData{
@@ -11,15 +11,47 @@ const GET_DATA = gql`
     }
 }
 `
+const SUBSCRIBE_NEW_APPOINTMENT = gql`
+  subscription newAppointment {
+    newAppointment {
+      _id
+      userId
+      doctorId
+      queueNumber
+      status
+    }
+  }
+`;
+
 
 function AntrianCard({ doctor }) {
-  const { data } = useQuery(GET_DATA)
+  const { data, subscribeToMore } = useQuery(GET_DATA)
+  const {data: subscription} = useSubscription(SUBSCRIBE_NEW_APPOINTMENT)
   let findOnProcess = null
+
+  useEffect(() => {
+    subscribeToMore({
+      document: SUBSCRIBE_NEW_APPOINTMENT,
+      updateQuery(prev, { subscriptionData }) {
+        if (!subscriptionData.data) {
+          return prev;
+        }
+
+        const newAppointment = subscriptionData.data.newAppointment;
+        // console.log(prev);
+
+        // console.log(newAppointment)
+        return {
+          ...prev,
+          dentals: [...prev.appointments, newAppointment],
+        };
+      },
+    });
+  }, [subscribeToMore]);
 
   if (data) {
     findOnProcess = data.appointments.find(appointment => (appointment.doctorId === doctor._id && appointment.status === "on process"))
   }
-
 
   return (
 
