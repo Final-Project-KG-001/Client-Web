@@ -5,12 +5,11 @@ import {
   Route,
   Switch
 } from 'react-router-dom'
-import HospitalProfile from './Views/HospitalProfile'
 import Appointment from './Views/Appointment'
 import Controller from './Views/Controller';
 import Login from './components/Login';
 import { ApolloProvider } from '@apollo/client';
-import client, { isLogin } from './config/apolloClient'
+import client from './config/apolloClient'
 
 function App() {
 

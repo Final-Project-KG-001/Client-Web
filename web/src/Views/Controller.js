@@ -3,6 +3,7 @@ import AntrianCard from '../components/AntrianCard'
 import { useQuery, gql } from '@apollo/client'
 import Loading from '../components/Loading'
 import Error from '../components/Error'
+import { isLogin } from "../config/apolloClient"
 
 const GET_INFO = gql`
   query GetInfo{
@@ -15,7 +16,7 @@ const GET_INFO = gql`
 `
 
 function Controller() {
-
+  console.log(isLogin())
   const { loading, error, data } = useQuery(GET_INFO)
 
   return (

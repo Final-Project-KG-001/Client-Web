@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { isLogin } from '../config/apolloClient'
 
 
 function Navigation() {
-
+  const history = useHistory()
   const [ time, setTime ] = useState('')
   const [ date, setDate ] = useState('')
+
+  function handleClick() {
+    isLogin(false)
+    history.push("/")
+    // console.log(isLogin())
+    localStorage.clear()
+  }
+
 
   useEffect(() => {
     setInterval(updateTime, 1000)
@@ -41,11 +49,10 @@ function Navigation() {
         <div className="div-right d-flex" style={ { marginRight: '10px' } }>
 
           <p style={ { fontFamily: 'Londrina Outline', fontSize: '35px', fontWeight: 'bolder' } }>{ time }</p>
-          {
-            !isLogin() ? <Link to="/monitor"  >Monitor</Link> :
-              <Link to="/" style={ { marginTop: '17px' } }>
-                <p className="hover-logout" style={ { fontSize: "10px" } }>Logout</p> </Link>
-          }
+
+          <Link to="/" style={ { marginTop: '17px' } }>
+            <p className="hover-logout" style={ { fontSize: "10px" } } onClick={ () => handleClick() }>Logout</p> </Link>
+
 
         </div>
       </div>

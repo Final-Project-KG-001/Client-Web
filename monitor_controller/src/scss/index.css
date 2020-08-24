@@ -9,11 +9,12 @@
   opacity: 0.5;
   opacity: 0.9;
   font-family: "Merienda", cursive;
-  margin-top: 130px;
+  margin-top: 100px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   width: 300px;
+  height: 370px;
   -webkit-box-shadow: 10px 10px 8px #6e6d6d;
           box-shadow: 10px 10px 8px #6e6d6d;
   background-color: #dee3e2;

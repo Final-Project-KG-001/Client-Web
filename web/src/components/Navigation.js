@@ -7,6 +7,7 @@ function Navigation() {
   function handleClick() {
     isLogin(false)
     // console.log(isLogin())
+    localStorage.clear()
   }
 
   return (

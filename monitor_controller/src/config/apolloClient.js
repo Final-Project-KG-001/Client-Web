@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache, makeVar } from '@apollo/client'
 
-export const isLogin = makeVar(true)
+export const isLogin = makeVar(false)
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000/',

@@ -8,6 +8,7 @@ const LOGIN = gql`
   mutation Login($email:String, $password:String){
     loginAdmin(email: $email, password:$password){
       access_token
+      message
     }
   }
 `
@@ -17,12 +18,13 @@ function Login() {
   const [ email, setEmail ] = useState("")
   const [ password, setPassword ] = useState("")
   const [ loginAdmin ] = useMutation(LOGIN)
+  const [ error, setError ] = useState("")
 
-  function handleClick() {
-    isLogin(true)
-    history.push('/appointment')
+  // function handleClick() {
+  //   isLogin(true)
+  //   history.push('/appointment')
 
-  }
+  // }
 
   async function handleSubmit(event) {
     event.preventDefault()
@@ -33,11 +35,19 @@ function Login() {
         password: password
       }
     })
-    // console.log(data.loginAdmin.access_token)
-    if (data.loginAdmin.access_token) {
-      isLogin(true)
-      // console.log(isLogin())
-      history.push('/appointment')
+
+    if (data) {
+
+      if (data.loginAdmin.access_token) {
+        isLogin(true)
+        history.push('/appointment')
+        // console.log(isLogin())
+        localStorage.setItem("access_token", data.loginAdmin.access_token)
+      } else {
+
+        setError(data.loginAdmin.message)
+
+      }
     }
   }
 
@@ -62,6 +72,10 @@ function Login() {
         </div>
         <button style={ { backgroundColor: '#86c4ba', color: '#ffa34d ', outline: 'none', borderColor: '#86c4ba' } } type="submit" className="btn btn-primary">Login</button>
       </form>
+      {
+        error &&
+        <p style={ { color: "red", marginTop: "20px" } }>{ error }</p>
+      }
     </div>
   )
 }
