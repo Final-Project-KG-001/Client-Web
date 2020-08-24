@@ -29,7 +29,7 @@
 }
 
 .container-monitor {
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .div-bottom {
@@ -39,6 +39,23 @@
   margin-right: 0;
 }
 
+.div-bottom .bottom-left {
+  border-style: solid;
+  border-color: #838383;
+}
+
+.div-bottom .bottom-left h1 {
+  text-align: center;
+  font-size: 30px;
+  opacity: 0.9;
+  font-family: "Londrina Outline", cursive;
+  margin-top: 70px;
+}
+
+.div-bottom .bottom-left textarea {
+  outline: none;
+}
+
 .div-top {
   font-weight: bold;
   text-align: center;
@@ -46,12 +63,12 @@
 
 .div-top .div-antrian_number {
   background-color: #e66767;
-  height: 100px;
+  height: 80px;
   margin-bottom: 10px;
 }
 
 .div-top .div-antrian_number p {
-  font-size: 60px;
+  font-size: 55px;
   font-weight: bold;
   text-align: center;
 }
@@ -82,7 +99,7 @@
 
 .card-antrian {
   margin-right: 10px;
-  width: 510px;
+  width: 530px;
   height: 200px;
   text-align: center;
   background-color: #ffeaa7;
@@ -95,7 +112,7 @@
 
 .card-antrian2 {
   margin-right: 10px;
-  width: 510px;
+  width: 530px;
   height: 200px;
   text-align: center;
   background-color: #55efc4;
@@ -118,8 +135,8 @@
 
 img {
   border-radius: 1000px;
-  height: 200px;
-  width: 200px;
+  height: 190px;
+  width: 190px;
   margin: auto;
 }
 

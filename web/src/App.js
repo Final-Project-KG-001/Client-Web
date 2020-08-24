@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom'
 import HospitalProfile from './Views/HospitalProfile'
 import Appointment from './Views/Appointment'
-import Navigation from './components/Navigation'
 import Controller from './Views/Controller';
 import Login from './components/Login';
 import { ApolloProvider } from '@apollo/client';

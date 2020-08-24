@@ -40,10 +40,12 @@ $seventh-color:#838383;
   margin-top: 120px;
   
   table{
-    border-style: outset;
     border-width: 5px;
     border-color: $primary-color;
     background-color: $seventh-color;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
   }
   
   h1{
@@ -167,11 +169,37 @@ $seventh-color:#838383;
     width:100%;
     justify-content: center;
     .card-poli{
+      border-radius: 15px;
+      position: relative;
+      background-color:#dee3e2;
       margin-top:100px;
       margin:5px;
-      width:300px;
+      width:350px;
+      height:310px;
+      
+      &:after{
+        z-index: -1;
+        position: absolute;
+        content: "";
+        bottom: 15px;
+        right: 10px;
+        left: auto;
+        width: 50%;
+        top: 80%;
+        max-width:300px;
+        background: #777;
+        -webkit-box-shadow: 0 15px 15px #777;
+        -moz-box-shadow: 0 15px 15px #777;
+        box-shadow: 0 15px 15px #777;
+        -webkit-transform: rotate(3deg);
+        -moz-transform: rotate(3deg);
+        -o-transform: rotate(3deg);
+        -ms-transform: rotate(3deg);
+        transform: rotate(3deg);
+      }
       hr{
-        background-color: $third-color
+        background-color: $third-color;
+        margin-top:30px;
       }
       .button_controller{
         margin: 20px auto;
@@ -181,8 +209,8 @@ $seventh-color:#838383;
         p{
           margin-right:10px;
           background-color:$secondary-color;
-          padding:5px;
-          margin-right:10px;
+          padding:3px;
+          margin-bottom:20px;
           color:white;
           width:80px;
           &:hover{
@@ -224,7 +252,7 @@ $seventh-color:#838383;
 .div-date{
   background-color: $third-color;
   padding:5px 10px;
-  color: black;
+  color: #393e46;
   width:200px;
   text-align: center;
   margin:auto;

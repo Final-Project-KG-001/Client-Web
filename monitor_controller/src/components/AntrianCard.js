@@ -13,7 +13,7 @@ const GET_DATA = gql`
 `
 
 function AntrianCard({ doctor }) {
-  const { loading, error, data } = useQuery(GET_DATA)
+  const { data } = useQuery(GET_DATA)
   let findOnProcess = null
 
   if (data) {

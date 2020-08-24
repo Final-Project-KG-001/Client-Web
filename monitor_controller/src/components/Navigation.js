@@ -36,6 +36,7 @@ function Navigation() {
       <div className="div-time container-fluid d-flex" style={ { justifyContent: 'space-between', color: '#838383' } }>
         <div className="div-left">
           <p style={ { fontWeight: 'normal', paddingTop: '10px', fontSize: '20px', fontFamily: 'Merienda' } }>{ date }</p>
+
         </div>
         <div className="div-right d-flex" style={ { marginRight: '10px' } }>
 
@@ -45,6 +46,7 @@ function Navigation() {
               <Link to="/" style={ { marginTop: '17px' } }>
                 <p className="hover-logout" style={ { fontSize: "10px" } }>Logout</p> </Link>
           }
+
         </div>
       </div>
     </>

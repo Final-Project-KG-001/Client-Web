@@ -35,12 +35,26 @@ $seventh-color:#838383;
 }
 
 .container-monitor{
-  margin-top:40px;
+  margin-top:30px;
 }
 
 .div-bottom{
  justify-content: flex-end;
  margin-right: 0;
+ .bottom-left{
+   border-style:solid;
+   border-color:$seventh-color;
+   h1{
+     text-align: center;
+     font-size:30px;
+     opacity:0.9;
+     font-family: $font-one;
+     margin-top: 70px;
+   }
+   textarea{
+     outline: none;
+   }
+ }
 }
 
 .div-top{
@@ -49,10 +63,10 @@ $seventh-color:#838383;
 
   .div-antrian_number{
     background-color: $secondary-color;
-    height: 100px;
+    height: 80px;
     margin-bottom: 10px;
     p{
-      font-size: 60px;
+      font-size: 55px;
       font-weight: bold;
       text-align: center;
     }
@@ -82,7 +96,7 @@ $seventh-color:#838383;
 
 .card-antrian{
   margin-right:10px;
-  width:510px;
+  width:530px;
   height:200px;
   text-align: center;
   background-color: $fourth-color;
@@ -94,7 +108,7 @@ $seventh-color:#838383;
 
 .card-antrian2{
   margin-right:10px;
-  width:510px;
+  width:530px;
   height:200px;
   text-align: center;
   background-color: $fifth-color;
@@ -115,8 +129,8 @@ $seventh-color:#838383;
 
 img{
   border-radius: 1000px;
-  height:200px;
-  width:200px;
+  height:190px;
+  width:190px;
   margin:auto;
 }
 

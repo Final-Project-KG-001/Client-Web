@@ -38,10 +38,11 @@
 }
 
 .div-information table {
-  border-style: outset;
   border-width: 5px;
   border-color: #eae7dc;
   background-color: #838383;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
 }
 
 .div-information h1 {
@@ -182,13 +183,35 @@
 }
 
 .div-controller .div-antrian_card .card-poli {
+  border-radius: 15px;
+  position: relative;
+  background-color: #dee3e2;
   margin-top: 100px;
   margin: 5px;
-  width: 300px;
+  width: 350px;
+  height: 310px;
+}
+
+.div-controller .div-antrian_card .card-poli:after {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  right: 10px;
+  left: auto;
+  width: 50%;
+  top: 80%;
+  max-width: 300px;
+  background: #777;
+  -webkit-box-shadow: 0 15px 15px #777;
+  box-shadow: 0 15px 15px #777;
+  -webkit-transform: rotate(3deg);
+  transform: rotate(3deg);
 }
 
 .div-controller .div-antrian_card .card-poli hr {
   background-color: #ea8685;
+  margin-top: 30px;
 }
 
 .div-controller .div-antrian_card .card-poli .button_controller {
@@ -203,8 +226,8 @@
 .div-controller .div-antrian_card .card-poli .button_controller p {
   margin-right: 10px;
   background-color: #e66767;
-  padding: 5px;
-  margin-right: 10px;
+  padding: 3px;
+  margin-bottom: 20px;
   color: white;
   width: 80px;
 }
@@ -250,7 +273,7 @@
 .div-date {
   background-color: #ea8685;
   padding: 5px 10px;
-  color: black;
+  color: #393e46;
   width: 200px;
   text-align: center;
   margin: auto;

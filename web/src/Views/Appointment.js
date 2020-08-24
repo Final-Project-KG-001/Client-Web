@@ -7,6 +7,7 @@ import Navigation from '../components/Navigation'
 const GET_APPOINTMENTS = gql`
   query Appointments{
     appointments{
+      _id
       userId
       doctorId
       queueNumber
@@ -18,6 +19,12 @@ const GET_APPOINTMENTS = gql`
       user{
         name
       }
+    },
+    dentals{
+      appointmentId
+    },
+    generals{
+      appointmentId
     }
   }
 `
@@ -25,6 +32,25 @@ const GET_APPOINTMENTS = gql`
 function Appointment() {
   const [ date, setDate ] = useState('')
   const { loading, error, data } = useQuery(GET_APPOINTMENTS)
+
+  const allOnBoardPasien = []
+  if (data) {
+
+    if (data.dentals && data.dentals.length !== 0) {
+
+      data.dentals.forEach(appointment => (
+        allOnBoardPasien.push(appointment)
+
+      ));
+    }
+    if (data.generals && data.generals.length !== 0) {
+      data.generals.forEach(appointment => (
+        allOnBoardPasien.push(appointment)
+      ))
+
+    }
+  }
+  // console.log(allOnBoardPasien)
 
   function getDate() {
 
@@ -41,7 +67,7 @@ function Appointment() {
   }
   useEffect(() => {
     setDate(getDate)
-  }, [ setDate ])
+  }, [])
 
 
   return (
@@ -72,10 +98,10 @@ function Appointment() {
             </tr>
           </thead>
           <tbody>
-            { data &&
+            { data && allOnBoardPasien &&
               data.appointments.map((data, index) => (
                 <tr key={ index } style={ data.doctor[ 0 ].polyclinic === "umum" ? { backgroundColor: "#85a392" } : { backgroundColor: "#dee3e2" } }>
-                  <td scope="row">{ index + 1 }</td>
+                  <td>{ index + 1 }</td>
                   <td>{ data.user[ 0 ].name }</td>
                   <td>{ data.doctor[ 0 ].polyclinic }</td>
                   <td>{ data.doctor[ 0 ].name }</td>
@@ -86,7 +112,13 @@ function Appointment() {
                   }
 
                   <td>{ data.queueNumber }</td>
-                  <td>on board</td>
+                  {
+
+                    (allOnBoardPasien.find(pasien => (
+                      pasien.appointmentId === data._id
+                    ))) ? <td>on board</td> : <td>off board</td>
+
+                  }
                 </tr>
               ))
             }

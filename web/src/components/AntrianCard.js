@@ -33,11 +33,12 @@ const SET_STATUS = gql`
 
 
 function AntrianCard({ doctor }) {
-  const { loading, error, data } = useQuery(GET_DATA)
+  const { data } = useQuery(GET_DATA)
   const [ changeAppointmentStatus ] = useMutation(SET_STATUS)
   const [ onProcess, setOnProcess ] = useState(0)
   const [ idChange, setIdChange ] = useState(null)
   const [ isAllDone, setIsAllDone ] = useState(false)
+  const [ noList, setNoList ] = useState(false)
 
   function handleNext() {
     if (idChange) {
@@ -66,15 +67,21 @@ function AntrianCard({ doctor }) {
         setOnProcess(0)
         setIsAllDone(true)
       }
-
     }
-
-
-
   }
 
   function handlePrevious() {
-
+    if (idChange) {
+      changeAppointmentStatus({
+        variables: {
+          _id: idChange,
+          status: "on process"
+        },
+        refetchQueries: [ "GetData" ]
+      })
+    }
+    setIsAllDone(false)
+    setNoList(false)
   }
 
   function handleStart() {
@@ -91,6 +98,8 @@ function AntrianCard({ doctor }) {
           },
           refetchQueries: [ "GetData" ]
         })
+      } else {
+        setNoList(true)
       }
     }
 
@@ -101,7 +110,6 @@ function AntrianCard({ doctor }) {
       const onProcessFound = data.appointments.find(appointment => (
         appointment.doctorId === doctor._id && appointment.status === "on process"
       ))
-
       if (onProcessFound) {
         setOnProcess(onProcessFound.queueNumber)
         setIdChange(onProcessFound._id)
@@ -127,12 +135,16 @@ function AntrianCard({ doctor }) {
             <hr />
           </div>
           <div className="button_controller d-flex">
-            <p onClick={ () => handlePrevious() }>Previous</p>
-            <p onClick={ () => handleNext() }>Next</p>
-            <p onClick={ (e) => handleStart(e) }>Start</p>
+            <p style={ { backgroundColor: "#3797a4" } } onClick={ () => handlePrevious() }>Previous</p>
+            <p style={ { backgroundColor: "#f8b24f" } } onClick={ () => handleNext() }>Next</p>
+            {
+              onProcess === 0 && <p onClick={ (e) => handleStart(e) }>Start</p>
+            }
+
           </div>
         </div>
-        { isAllDone && <p style={ { color: '#24a19c' } }>All done. Tidak ada daftar pasien!!</p> }
+        { isAllDone && <p style={ { color: '#24a19c' } }>All done</p> }
+        { noList && <p style={ { color: '#24a19c' } }>Tidak ada daftar pasien!!</p> }
       </div>
     </>
   )
