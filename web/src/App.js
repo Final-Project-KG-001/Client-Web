@@ -11,6 +11,7 @@ import Controller from './Views/Controller';
 import Login from './components/Login';
 import { ApolloProvider } from '@apollo/client';
 import client from './config/apolloClient'
+import Tes from './Views/Tes';
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
       <div className="App">
         <Router>
           <Switch>
+            <Route path='/tes'>
+              <Tes />
+            </Route>
             <Route path='/appointment'>
               <Appointment />
             </Route>
