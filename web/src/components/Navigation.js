@@ -1,7 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { isLogin } from '../config/apolloClient';
 
 function Navigation() {
+
+  function handleClick() {
+    isLogin(false)
+    // console.log(isLogin())
+  }
 
   return (
 
@@ -12,14 +18,15 @@ function Navigation() {
         </Link>
       </div>
       <div className="nav-right">
-        <Link to="/appointment">
+
+        <Link to="/appointment" >
           <p>Appointment</p>
         </Link>
         <Link to="/controller">
           <p>Controller</p>
         </Link>
         <Link to="/">
-          <p>Logout</p>
+          <p onClick={ () => handleClick() }>Logout</p>
         </Link>
       </div>
     </div>

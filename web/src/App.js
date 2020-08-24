@@ -10,22 +10,22 @@ import Appointment from './Views/Appointment'
 import Controller from './Views/Controller';
 import Login from './components/Login';
 import { ApolloProvider } from '@apollo/client';
-import client from './config/apolloClient'
+import client, { isLogin } from './config/apolloClient'
 
 function App() {
+
+
   return (
     <ApolloProvider client={ client }>
+
       <div className="App">
         <Router>
           <Switch>
-            <Route path='/appointment'>
+            <Route path="/appointment">
               <Appointment />
             </Route>
-            <Route path='/controller'>
+            <Route path="/controller" >
               <Controller />
-            </Route>
-            <Route path='/home'>
-              <HospitalProfile />
             </Route>
             <Route path='/'>
               <Login />
@@ -33,6 +33,7 @@ function App() {
           </Switch>
         </Router>
       </div>
+
     </ApolloProvider>
   );
 }

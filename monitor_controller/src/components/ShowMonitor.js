@@ -9,7 +9,6 @@ import slide1 from '../assets/quotes/slide1.jpg'
 import slide2 from '../assets/quotes/slide2.jpg'
 import slide3 from '../assets/quotes/slide3.jpg'
 import slide4 from '../assets/quotes/slide4.jpg'
-import ModalInfo from '../components/ModalInfo'
 
 
 const GET_DOCTOR = gql`
@@ -33,6 +32,11 @@ function ShowMonitor() {
     const randomImage = [ slide1, slide2, slide3, slide4 ]
     setImage(randomImage[ Math.floor(Math.random() * 5) ])
   }
+
+  function handleTextArea(event) {
+
+  }
+
   useEffect(() => {
     if (option === "quotes") {
       setInterval(handleOption, 10000)
@@ -69,24 +73,28 @@ function ShowMonitor() {
               <option data-toggle="modal" data-target="#exampleModalCenter" value="informasi">informasi</option>
               <option value="quotes">quotes</option>
             </select>
-            <div className="bottom-left col-5">
-              {
-                !option && <h1>Have a wonderful day</h1>
 
-              }
-              {
-                option === "informasi" &&
-                <textarea placeholder="Input your information here!" cols="60"></textarea>
-              }
-              {
-                image === undefined && <h1>Have a wonderful day</h1>
-              }
-              {
-                image && image !== undefined && <img src={ image } alt="Have a good day" style={ { width: '400px', height: '200px', margin: 'auto', borderRadius: "10px" } } />
-              }
+            {
+              option === "quotes" ?
 
-              <ModalInfo />
-            </div>
+                <div className="bottom-left col-5">
+                  {
+                    image === "" && <h1>Have a wonderful day</h1>
+                  }
+                  {
+                    image === undefined && <h1>Have a wonderful day</h1>
+                  }
+                  {
+                    image && <img src={ image } alt="Have a good day" style={ { width: '400px', height: '200px', margin: 'auto', borderRadius: "10px" } } />
+                  }
+                </div> : option === "informasi" ?
+                  <div className="bottom-left col-5">
+                    <textarea onChange={ (event) => handleTextArea(event.target.value) } placeholder="Input your information here!" cols="35" spellCheck="false"></textarea>
+                  </div> :
+                  <div className="bottom-left col-5"><h1>Have a wonderful day</h1>
+                  </div>
+            }
+
             <div className="bottom-right col-7 d-flex">
               {
                 data &&

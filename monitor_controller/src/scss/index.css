@@ -54,6 +54,8 @@
 
 .div-bottom .bottom-left textarea {
   outline: none;
+  font-size: 20px;
+  color: #838383;
 }
 
 .div-top {
