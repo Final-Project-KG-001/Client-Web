@@ -30,30 +30,39 @@
 }
 
 .container-monitor {
-  margin-top: 30px;
+  margin-top: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
-.div-bottom {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  margin-right: 0;
-}
-
-.div-bottom .bottom-left {
+.container-monitor .div-left .div-left_bottom {
   border-style: solid;
   border-color: #838383;
+  height: 210px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.div-bottom .bottom-left h1 {
+.container-monitor .div-left .div-left_bottom h1 {
   text-align: center;
   font-size: 30px;
   opacity: 0.9;
   font-family: "Londrina Outline", cursive;
-  margin-top: 70px;
+  margin-top: 60px;
+  margin-left: 20px;
 }
 
-.div-bottom .bottom-left textarea {
+.container-monitor .div-left .div-left_bottom textarea {
   outline: none;
   font-size: 20px;
   color: #838383;
@@ -64,48 +73,15 @@
   text-align: center;
 }
 
-.div-top .div-antrian_number {
-  background-color: #e66767;
-  height: 80px;
-  margin-bottom: 10px;
-}
-
-.div-top .div-antrian_number p {
-  font-size: 55px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.div-top .div-antrian_title {
-  height: 60px;
-  background-color: #ea8685;
-  margin-bottom: 10px;
-}
-
-.div-top .div-antrian_title p {
-  font-weight: bold;
-  text-align: center;
-  font-size: 30px;
-}
-
-.div-top .div-antrian_poli {
-  height: 60px;
-  background-color: #ea8685;
-  margin-bottom: 10px;
-}
-
-.div-top .div-antrian_poli p {
-  font-weight: bold;
-  text-align: center;
-  font-size: 30px;
-}
-
 .card-antrian {
   margin-right: 10px;
   width: 530px;
-  height: 200px;
+  height: 220px;
   text-align: center;
-  background-color: #ffeaa7;
+  background-color: #eae7dc;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;
 }
 
 .card-antrian p {
@@ -113,17 +89,101 @@
   font-size: 20px;
 }
 
+.card-antrian .div-right {
+  margin-left: 70px;
+}
+
+.card-antrian .div-antrian_title {
+  height: 50px;
+  background-color: #ffeaa7;
+  margin-bottom: 10px;
+}
+
+.card-antrian .div-antrian_title p {
+  font-weight: bold;
+  text-align: center;
+  font-size: 30px;
+  margin: auto;
+}
+
+.card-antrian .div-antrian_number {
+  background-color: #ffeaa7;
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+.card-antrian .div-antrian_number h1 {
+  font-size: 55px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-antrian .div-antrian_poli {
+  height: 50px;
+  background-color: #ffeaa7;
+  margin-bottom: 10px;
+}
+
+.card-antrian .div-antrian_poli p {
+  font-weight: bold;
+  text-align: center;
+  font-size: 30px;
+}
+
 .card-antrian2 {
   margin-right: 10px;
   width: 530px;
-  height: 200px;
+  height: 220px;
   text-align: center;
-  background-color: #55efc4;
+  background-color: #eae7dc;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;
 }
 
 .card-antrian2 p {
   font-weight: bold;
   font-size: 20px;
+}
+
+.card-antrian2 .div-right {
+  margin-left: 70px;
+}
+
+.card-antrian2 .div-antrian_title {
+  height: 50px;
+  background-color: #ea8685;
+  margin-bottom: 10px;
+}
+
+.card-antrian2 .div-antrian_title p {
+  font-weight: bold;
+  text-align: center;
+  font-size: 30px;
+}
+
+.card-antrian2 .div-antrian_number {
+  background-color: #e66767;
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+.card-antrian2 .div-antrian_number h1 {
+  font-size: 55px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-antrian2 .div-antrian_poli {
+  height: 50px;
+  background-color: #ea8685;
+  margin-bottom: 10px;
+}
+
+.card-antrian2 .div-antrian_poli p {
+  font-weight: bold;
+  text-align: center;
+  font-size: 30px;
 }
 
 .div-time {
@@ -147,6 +207,7 @@ h2 {
   font-size: 20px;
   color: #8e8a8d;
   font-weight: bold;
+  text-align: center;
 }
 
 .hover-logout:hover {

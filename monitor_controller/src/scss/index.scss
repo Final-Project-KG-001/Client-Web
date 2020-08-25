@@ -36,57 +36,82 @@ $seventh-color:#838383;
 }
 
 .container-monitor{
-  margin-top:30px;
-}
+  margin-top:35px;
+  display: flex;
+  flex-direction: row;
+  
+  .div-left{
+    .div-left_bottom{
+      border-style:solid;
+      border-color:$seventh-color;
+      height: 210px;
+      display: flex;
+      flex-direction: column;
+      h1{
+        text-align: center;
+        font-size:30px;
+        opacity:0.9;
+        font-family: $font-one;
+        margin-top: 60px;
+        margin-left:20px;
+      }
+      textarea{
+        outline: none;
+        font-size:20px;
+        color: $seventh-color;
+      }
+    }
+  }
 
-.div-bottom{
- justify-content: flex-end;
- margin-right: 0;
- .bottom-left{
-   border-style:solid;
-   border-color:$seventh-color;
-   h1{
-     text-align: center;
-     font-size:30px;
-     opacity:0.9;
-     font-family: $font-one;
-     margin-top: 70px;
-   }
-   textarea{
-     outline: none;
-     font-size:20px;
-     color: $seventh-color;
-   }
- }
 }
 
 .div-top{
   font-weight: bold;
   text-align: center;
+}
 
-  .div-antrian_number{
-    background-color: $secondary-color;
-    height: 80px;
-    margin-bottom: 10px;
-    p{
-      font-size: 55px;
-      font-weight: bold;
-      text-align: center;
-    }
+.card-antrian{
+  margin-right:10px;
+  width:530px;
+  height:220px;
+  text-align: center;
+  background-color: $primary-color;
+  margin-bottom:20px;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+       box-shadow: 0 8px 6px -6px black;
+  p{
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .div-right{
+    margin-left: 70px;
+   
   }
   .div-antrian_title{
-    height: 60px;
-    background-color: $third-color;
+    height: 50px;
+    background-color: $fourth-color;
     margin-bottom: 10px;
     p{
       font-weight: bold;
       text-align: center;
       font-size: 30px;
+      margin:auto;
+    }
+  }
+  .div-antrian_number{
+    background-color: $fourth-color;
+    height: 70px;
+    margin-bottom: 10px;
+    h1{
+      font-size: 55px;
+      font-weight: bold;
+      text-align: center;
     }
   }
   .div-antrian_poli{
-    height: 60px;
-    background-color: $third-color;
+    height: 50px;
+    background-color: $fourth-color;
     margin-bottom: 10px;
     p{
       font-weight: bold;
@@ -97,27 +122,54 @@ $seventh-color:#838383;
   }
 }
 
-.card-antrian{
+.card-antrian2{
   margin-right:10px;
   width:530px;
-  height:200px;
+  height:220px;
   text-align: center;
-  background-color: $fourth-color;
+  background-color: $primary-color;
+  margin-bottom:10px;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+       box-shadow: 0 8px 6px -6px black;
   p{
     font-weight: bold;
     font-size: 20px;
   }
-}
-
-.card-antrian2{
-  margin-right:10px;
-  width:530px;
-  height:200px;
-  text-align: center;
-  background-color: $fifth-color;
-  p{
-    font-weight: bold;
-    font-size: 20px;
+  .div-right{
+    margin-left: 70px;
+   
+  }
+  .div-antrian_title{
+    height: 50px;
+    background-color: $third-color;
+    margin-bottom: 10px;
+    p{
+      font-weight: bold;
+      text-align: center;
+      font-size: 30px;
+    }
+  }
+  .div-antrian_number{
+    background-color: $secondary-color;
+    height: 70px;
+    margin-bottom: 10px;
+    h1{
+      font-size: 55px;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+  .div-antrian_poli{
+    height: 50px;
+    background-color: $third-color;
+    margin-bottom: 10px;
+    p{
+      font-weight: bold;
+      text-align: center;
+      font-size: 30px;
+     
+    }
   }
 }
 
@@ -141,6 +193,7 @@ h2{
   font-size:20px;
   color:#8e8a8d;
   font-weight: bold;
+  text-align: center;
 
 }
 

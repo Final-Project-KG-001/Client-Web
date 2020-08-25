@@ -12,8 +12,8 @@ import DokterCard from "../components/DokterCard"
 
 
 const GET_DOCTOR = gql`
-  query GetDoctor{
-    doctors{
+  query GetDoctor($access_token:String){
+    doctors(access_token:$access_token){
       _id
       name
       polyclinic
@@ -24,7 +24,7 @@ const GET_DOCTOR = gql`
 
 function ShowMonitor() {
 
-  const { loading, error, data } = useQuery(GET_DOCTOR)
+  const { loading, error, data } = useQuery(GET_DOCTOR, { variables: { access_token: localStorage.getItem("access_token") } })
   const [ option, setOption ] = useState(null)
   const [ image, setImage ] = useState("")
 
@@ -51,53 +51,51 @@ function ShowMonitor() {
       { error && <Error /> }
       { data &&
         <div className="container container-monitor">
-          <div className="container d-flex div-top">
 
-            <div className="col-5 div-antrian_kiri">
+          <div className="col-5 div-left">
+            <div className="container div-left_top">
               <DokterCard />
             </div>
+            <div className="container div-left_bottom">
+              <select onChange={ (event) => setOption(event.target.value) } style={ { color: '#838383', marginRight: "10px", outline: "none", borderColor: "#838383", width: "20px", height: "20px", borderRadius: "50%" } }>
+                <option value="">Pilih kategori:</option>
+                <option data-toggle="modal" data-target="#exampleModalCenter" value="informasi">informasi</option>
+                <option value="quotes">quotes</option>
+              </select>
 
-
-          </div>
-          <div className="container d-flex div-bottom">
-            <select onChange={ (event) => setOption(event.target.value) } style={ { color: '#838383', marginRight: "10px", outline: "none", borderColor: "#838383", width: "20px", height: "20px", borderRadius: "50%" } }>
-              <option value="">Pilih kategori:</option>
-              <option data-toggle="modal" data-target="#exampleModalCenter" value="informasi">informasi</option>
-              <option value="quotes">quotes</option>
-            </select>
-
-            {
-              option === "quotes" ?
-
-                <div className="bottom-left col-5">
-                  {
-                    image === "" && <h1>Have a wonderful day</h1>
-                  }
-                  {
-                    image === undefined && <h1>Have a wonderful day</h1>
-                  }
-                  {
-                    image && <img src={ image } alt="Have a good day" style={ { width: '400px', height: '200px', margin: 'auto', borderRadius: "10px" } } />
-                  }
-                </div> : option === "informasi" ?
-                  <div className="bottom-left col-5">
-                    <textarea onChange={ (event) => handleTextArea(event.target.value) } placeholder="Input your information here!" cols="35" spellCheck="false"></textarea>
-                  </div> :
-                  <div className="bottom-left col-5"><h1>Have a wonderful day</h1>
-                  </div>
-            }
-
-            <div className="bottom-right col-7 d-flex">
               {
-                data &&
-                data.doctors.map((doctor) => (
-                  <AntrianCard
-                    key={ doctor._id }
-                    doctor={ doctor }
-                  />
-                ))
+                option === "quotes" ?
+
+                  <div className="bottom-left">
+                    {
+                      image === "" && <h1>Have a wonderful day</h1>
+                    }
+                    {
+                      image === undefined && <h1>Have a wonderful day</h1>
+                    }
+                    {
+                      image && <img src={ image } alt="Have a good day" style={ { width: '390px', height: '180px', margin: 'auto', borderRadius: "10px" } } />
+                    }
+                  </div> : option === "informasi" ?
+                    <div className="bottom-left">
+                      <textarea onChange={ (event) => handleTextArea(event.target.value) } placeholder="Input your information here!" cols="35" spellCheck="false"></textarea>
+                    </div> :
+                    <div className="bottom-left"><h1>Have a wonderful day</h1>
+                    </div>
               }
             </div>
+
+          </div>
+          <div className="div-right col-7">
+            {
+              data &&
+              data.doctors.map((doctor) => (
+                <AntrianCard
+                  key={ doctor._id }
+                  doctor={ doctor }
+                />
+              ))
+            }
           </div>
         </div>
       }
