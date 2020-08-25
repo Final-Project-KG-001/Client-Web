@@ -4,9 +4,27 @@ import Loading from "../components/Loading";
 import Error from "../components/Error";
 import Navigation from "../components/Navigation";
 
+const SUBSCRIBE_NEW_DENTAL = gql`
+  subscription onDentalAdded {
+    newDental {
+      _id
+      appointmentId
+    }
+  }
+`;
+
+const SUBSCRIBE_NEW_GENERAL = gql`
+  subscription onGeneralAdded {
+    newGeneral {
+      _id
+      appointmentId
+    }
+  }
+`;
+
 const GET_APPOINTMENTS = gql`
-  query Appointments {
-    appointments {
+  query Appointments($access_token: String) {
+    appointments(access_token: $access_token) {
       _id
       userId
       doctorId
@@ -21,10 +39,12 @@ const GET_APPOINTMENTS = gql`
         name
       }
     }
-    dentals {
+    dentals(access_token: $access_token) {
+      _id
       appointmentId
     }
-    generals {
+    generals(access_token: $access_token) {
+      _id
       appointmentId
     }
   }
@@ -32,7 +52,43 @@ const GET_APPOINTMENTS = gql`
 
 function Appointment() {
   const [ date, setDate ] = useState("");
-  const { loading, error, data } = useQuery(GET_APPOINTMENTS);
+  const { loading, error, data, subscribeToMore } = useQuery(GET_APPOINTMENTS, {
+    variables: {
+      access_token: localStorage.getItem('access_token')
+    }
+  });
+
+  useEffect(() => {
+    subscribeToMore({
+      document: SUBSCRIBE_NEW_DENTAL,
+      updateQuery(prev, { subscriptionData }) {
+        if(!subscriptionData.data) {
+          return prev;
+        }
+        const newDental = subscriptionData.data.newDental;
+
+        return {
+          ...prev,
+          dentals: [ ...prev.dentals, newDental ]
+        };
+      }
+    });
+
+    subscribeToMore({
+      document: SUBSCRIBE_NEW_GENERAL,
+      updateQuery(prev, { subscriptionData }) {
+        if(!subscriptionData.data) {
+          return prev;
+        }
+        const newGeneral = subscriptionData.data.newGeneral;
+
+        return {
+          ...prev,
+          generals: [ ...prev.generals, newGeneral ]
+        }
+      }
+    });
+  }, [subscribeToMore])
 
   const allOnBoardPasien = [];
   if (data) {
@@ -45,7 +101,6 @@ function Appointment() {
       );
     }
   }
-  console.log(data)
 
   function getDate() {
     const now = new Date();
@@ -83,7 +138,7 @@ function Appointment() {
   useEffect(() => {
     setDate(getDate);
   }, []);
-  console.log(data)
+  console.log(loading, error, data)
   return (
     <>
       <Navigation />
