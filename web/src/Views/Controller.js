@@ -5,8 +5,8 @@ import Loading from '../components/Loading'
 import Error from '../components/Error'
 
 const GET_INFO = gql`
-  query GetInfo{
-    doctors{
+  query GetInfo($access_token:String){
+    doctors(access_token:$access_token){
       _id
       name
       polyclinic
@@ -16,7 +16,7 @@ const GET_INFO = gql`
 
 function Controller() {
   // console.log(isLogin())
-  const { loading, error, data } = useQuery(GET_INFO)
+  const { loading, error, data } = useQuery(GET_INFO, { variables: { access_token: localStorage.getItem("access_token") } })
 
   return (
     <>

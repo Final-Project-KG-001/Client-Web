@@ -5,8 +5,8 @@ import Navigation from './Navigation'
 
 
 const GET_DATA = gql`
-  query GetData{
-    appointments{
+  query GetData($access_token:String){
+    appointments(access_token:$access_token){
       _id
       userId
       doctorId
@@ -23,8 +23,8 @@ const GET_DATA = gql`
 `
 
 const SET_STATUS = gql`
-  mutation SetStatus($_id:ID,$status:String){
-    changeAppointmentStatus(_id:$_id, status:$status){
+  mutation SetStatus($_id:ID,$status:String, $access_token:String){
+    changeAppointmentStatus(_id:$_id, status:$status, access_token:$access_token){
       message
       status
   }
@@ -33,7 +33,10 @@ const SET_STATUS = gql`
 
 
 function AntrianCard({ doctor }) {
-  const { data } = useQuery(GET_DATA)
+
+  const { data } = useQuery(GET_DATA, { variables: { access_token: localStorage.getItem("access_token") } })
+
+
   const [ changeAppointmentStatus ] = useMutation(SET_STATUS)
   const [ onProcess, setOnProcess ] = useState(0)
   const [ idChange, setIdChange ] = useState(null)
@@ -45,7 +48,8 @@ function AntrianCard({ doctor }) {
       changeAppointmentStatus({
         variables: {
           _id: idChange,
-          status: "done"
+          status: "done",
+          access_token: localStorage.getItem("access_token")
         },
         refetchQueries: [ "GetData" ]
       })
@@ -59,7 +63,8 @@ function AntrianCard({ doctor }) {
         changeAppointmentStatus({
           variables: {
             _id: nextOnProcess._id,
-            status: "on process"
+            status: "on process",
+            access_token: localStorage.getItem("access_token")
           },
           refetchQueries: [ "GetData" ]
         })
@@ -75,7 +80,8 @@ function AntrianCard({ doctor }) {
       changeAppointmentStatus({
         variables: {
           _id: idChange,
-          status: "on process"
+          status: "on process",
+          access_token: localStorage.getItem("access_token")
         },
         refetchQueries: [ "GetData" ]
       })
@@ -94,7 +100,8 @@ function AntrianCard({ doctor }) {
         changeAppointmentStatus({
           variables: {
             _id: findOnProcess._id,
-            status: "on process"
+            status: "on process",
+            access_token: localStorage.getItem("access_token")
           },
           refetchQueries: [ "GetData" ]
         })

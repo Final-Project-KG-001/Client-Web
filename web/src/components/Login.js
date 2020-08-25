@@ -3,6 +3,7 @@ import loginicon from '../assets/loginicon.png'
 import { useHistory } from 'react-router-dom';
 import { isLogin } from '../config/apolloClient'
 import { gql, useMutation } from '@apollo/client'
+import Error from "../components/Error"
 
 const LOGIN = gql`
   mutation Login($email:String, $password:String){
@@ -19,6 +20,7 @@ function Login() {
   const [ password, setPassword ] = useState("")
   const [ loginAdmin ] = useMutation(LOGIN)
   const [ error, setError ] = useState("")
+  const [ errorServer, setErrorServer ] = useState(false)
 
   // function handleClick() {
   //   isLogin(true)
@@ -27,32 +29,44 @@ function Login() {
   // }
 
   async function handleSubmit(event) {
+
+
     event.preventDefault()
+    try {
+      const { loading, error, data } = await loginAdmin({
+        variables: {
+          email: email,
+          password: password
+        }
+      })
+      if (data) {
 
-    const { data } = await loginAdmin({
-      variables: {
-        email: email,
-        password: password
+        if (data.loginAdmin.access_token) {
+          isLogin(true)
+          history.push('/appointment')
+          // console.log(isLogin())
+          localStorage.setItem("access_token", data.loginAdmin.access_token)
+        } else {
+
+          setError(data.loginAdmin.message)
+
+        }
       }
-    })
-
-    if (data) {
-
-      if (data.loginAdmin.access_token) {
-        isLogin(true)
-        history.push('/appointment')
-        // console.log(isLogin())
-        localStorage.setItem("access_token", data.loginAdmin.access_token)
-      } else {
-
-        setError(data.loginAdmin.message)
-
-      }
+    } catch (err) {
+      console.log(err)
+      setErrorServer(true)
     }
+
+
+
+
   }
 
   return (
     <div className='div-login container-fluid'>
+      {
+        errorServer && <Error />
+      }
       <div className="image-login">
         <img src={ loginicon } alt="Login Admin" style={ { width: '100px', height: '100px', margin: 'auto' } }></img>
       </div>

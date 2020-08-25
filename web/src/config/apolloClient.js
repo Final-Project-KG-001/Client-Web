@@ -9,11 +9,11 @@ const httpLink = new HttpLink({
 });
 
 const wsLink = new WebSocketLink({
-  uri: `ws://localhost:4000/graphql `,
+  uri: 'ws://54.254.218.69:4000/graphql',
   options: {
     reconnect: true
   }
-});
+})
 
 const link = split(
   ({ query }) => {

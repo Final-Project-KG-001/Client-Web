@@ -5,34 +5,40 @@ import Error from "../components/Error";
 import Navigation from "../components/Navigation";
 
 const GET_APPOINTMENTS = gql`
-  query Appointments {
-    appointments {
-      _id
-      userId
-      doctorId
-      queueNumber
-      status
-      createdAt
-      doctor {
-        name
-        polyclinic
-      }
-      user {
-        name
-      }
+query Appointments($access_token:String) {
+  appointments(access_token:$access_token) {
+    _id
+    userId
+    doctorId
+    queueNumber
+    status
+    createdAt
+    doctor {
+      name
+      polyclinic
     }
-    dentals {
-      appointmentId
-    }
-    generals {
-      appointmentId
+    user {
+      name
     }
   }
+  dentals(access_token:$access_token) {
+    appointmentId
+  }
+  generals(access_token:$access_token) {
+    appointmentId
+  }
+}
 `;
 
 function Appointment() {
   const [ date, setDate ] = useState("");
-  const { loading, error, data } = useQuery(GET_APPOINTMENTS);
+
+  // const token = localStorage.getItem("access_token")
+
+
+  const { loading, error, data } = useQuery(GET_APPOINTMENTS, { variables: { access_token: localStorage.getItem("access_token") } });
+
+
 
   const allOnBoardPasien = [];
   if (data) {
@@ -45,7 +51,7 @@ function Appointment() {
       );
     }
   }
-  console.log(data)
+
 
   function getDate() {
     const now = new Date();
@@ -83,7 +89,7 @@ function Appointment() {
   useEffect(() => {
     setDate(getDate);
   }, []);
-  console.log(data)
+
   return (
     <>
       <Navigation />
