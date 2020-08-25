@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import { isLogin } from '../config/apolloClient'
 
 
 function Navigation() {
@@ -9,7 +8,7 @@ function Navigation() {
   const [ date, setDate ] = useState('')
 
   function handleClick() {
-    isLogin(false)
+    // isLogin(false)
     history.push("/")
     // console.log(isLogin())
     localStorage.clear()

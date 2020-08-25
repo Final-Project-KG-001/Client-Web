@@ -5,7 +5,7 @@ import { getMainDefinition } from '@apollo/client/utilities';
 export const isLogin = makeVar(false);
 
 const httpLink = new HttpLink({
-  uri: 'http://localhost:4000/'
+  uri: "http://54.254.218.69:4000/"
 });
 
 const wsLink = new WebSocketLink({

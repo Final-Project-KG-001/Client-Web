@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import loginicon from '../assets/loginicon.png'
-import { useHistory } from 'react-router-dom';
-import { isLogin } from '../config/apolloClient'
+import { useHistory } from 'react-router-dom'
 import { gql, useMutation } from '@apollo/client'
 
 
@@ -40,7 +39,7 @@ function Login() {
     if (data) {
 
       if (data.loginAdmin.access_token) {
-        isLogin(true)
+        // isLogin(true)
         history.push('/monitor')
         // console.log(isLogin())
         localStorage.setItem("access_token", data.loginAdmin.access_token)

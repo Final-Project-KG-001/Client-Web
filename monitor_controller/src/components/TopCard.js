@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import DokterCard from "../components/DokterCard"
 import { gql, useQuery, useSubscription } from '@apollo/client'
 
 const GET_DATA = gql`
@@ -9,12 +10,16 @@ const GET_DATA = gql`
       status
       doctorId
       doctor{
-        name
         polyclinic
       }
+    },
+    doctors{
+      _id
+      polyclinic
     }
 }
 `
+
 const SUBSCRIBE_NEW_APPOINTMENT = gql`
   subscription newAppointment {
     newAppointment {
@@ -25,18 +30,26 @@ const SUBSCRIBE_NEW_APPOINTMENT = gql`
       status
       doctor{
         name
+        polyclinic
+        
       }
     }
   }
 `;
 
 
-function AntrianCard({ doctor }) {
+
+function TopCard() {
+  const [ newData, setNewData ] = useState({})
+  const [ doctor, setDoctor ] = useState({})
   const { data, subscribeToMore } = useQuery(GET_DATA)
   const { data: subscription } = useSubscription(SUBSCRIBE_NEW_APPOINTMENT)
-  let findOnProcess = null
 
+  // if (data && setNewData) {
+  //   const found = data.doctors.find(doctor => doctor._id === newData.doctorId)
 
+  //   setDoctor(found)
+  // }
 
   useEffect(() => {
 
@@ -49,6 +62,9 @@ function AntrianCard({ doctor }) {
 
         const newAppointment = subscriptionData.data.newAppointment;
 
+        setNewData(newAppointment)
+
+
         return {
           ...prev,
           dentals: [ ...prev.appointments, newAppointment ],
@@ -57,38 +73,29 @@ function AntrianCard({ doctor }) {
     });
   }, [ subscribeToMore ]);
 
-  if (data) {
-    findOnProcess = data.appointments.find(appointment => (appointment.doctorId === doctor._id && appointment.status === "on process"))
-  }
 
   return (
 
-    <div
-      key={ doctor._id }
-      className={ doctor.polyclinic === "umum" ? "card card-antrian d-flex" : "card card-antrian2 d-flex" }>
-      <div className="card-body">
-        <p>Nomor Antrian:</p>
-        { doctor.polyclinic === "umum" &&
-          <>
-            { data &&
-              <h1>A { findOnProcess ? findOnProcess.queueNumber : 0 }</h1>
-            }
-          </>
-        }
-        { doctor.polyclinic === "gigi" &&
-          <>
-            { data &&
-              <h1>B { findOnProcess ? findOnProcess.queueNumber : 0 }</h1>
-            }
-          </>
-        }
+    <div className="container d-flex div-top">
 
-        <hr />
-        <p className="card-title">Poli { doctor.polyclinic }</p>
-        <h5 className="card-title">{ doctor.name }</h5>
+      <div className="col-5 div-antrian_kiri">
+        <DokterCard />
       </div>
+      <div className="col-7 div-antrian_kanan">
+        <div className="div-antrian_title">
+          <p>Antrian</p>
+        </div>
+        <div className="div-antrian_number">
+          <p>B{ newData.queueNumber }</p>
+        </div>
+
+        <div className="div-antrian_poli">
+          <p>Poli Umum</p>
+        </div>
+      </div>
+
     </div>
   )
 }
 
-export default AntrianCard;
+export default TopCard;

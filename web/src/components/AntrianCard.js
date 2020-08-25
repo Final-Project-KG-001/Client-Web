@@ -115,11 +115,7 @@ function AntrianCard({ doctor }) {
         setIdChange(onProcessFound._id)
       }
     }
-<<<<<<< HEAD
   }, [ data, doctor._id ])
-=======
-  }, [data, doctor._id])
->>>>>>> 536d8567552375ae0bd3f29eecfbe706e8170866
 
   return (
     <>

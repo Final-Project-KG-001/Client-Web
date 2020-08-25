@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import AntrianCard from "./AntrianCard"
-import DokterCard from './DokterCard'
 import { gql, useQuery } from '@apollo/client'
 import Loading from '../components/Loading'
 import Error from '../components/Error'
@@ -9,6 +8,7 @@ import slide1 from '../assets/quotes/slide1.jpg'
 import slide2 from '../assets/quotes/slide2.jpg'
 import slide3 from '../assets/quotes/slide3.jpg'
 import slide4 from '../assets/quotes/slide4.jpg'
+import DokterCard from "../components/DokterCard"
 
 
 const GET_DOCTOR = gql`
@@ -28,6 +28,7 @@ function ShowMonitor() {
   const [ option, setOption ] = useState(null)
   const [ image, setImage ] = useState("")
 
+
   function handleOption() {
     const randomImage = [ slide1, slide2, slide3, slide4 ]
     setImage(randomImage[ Math.floor(Math.random() * 5) ])
@@ -43,7 +44,6 @@ function ShowMonitor() {
     }
   }, [ option ])
 
-
   return (
     <>
       <Navigation />
@@ -52,20 +52,12 @@ function ShowMonitor() {
       { data &&
         <div className="container container-monitor">
           <div className="container d-flex div-top">
+
             <div className="col-5 div-antrian_kiri">
               <DokterCard />
             </div>
-            <div className="col-7 div-antrian_kanan">
-              <div className="div-antrian_title">
-                <p>Antrian</p>
-              </div>
-              <div className="div-antrian_number">
-                <p>A 4</p>
-              </div>
-              <div className="div-antrian_poli">
-                <p>Poli Umum</p>
-              </div>
-            </div>
+
+
           </div>
           <div className="container d-flex div-bottom">
             <select onChange={ (event) => setOption(event.target.value) } style={ { color: '#838383', marginRight: "10px", outline: "none", borderColor: "#838383", width: "20px", height: "20px", borderRadius: "50%" } }>

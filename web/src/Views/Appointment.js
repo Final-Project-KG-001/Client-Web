@@ -12,6 +12,7 @@ const GET_APPOINTMENTS = gql`
       doctorId
       queueNumber
       status
+      createdAt
       doctor {
         name
         polyclinic
@@ -30,7 +31,7 @@ const GET_APPOINTMENTS = gql`
 `;
 
 function Appointment() {
-  const [date, setDate] = useState("");
+  const [ date, setDate ] = useState("");
   const { loading, error, data } = useQuery(GET_APPOINTMENTS);
 
   const allOnBoardPasien = [];
@@ -44,7 +45,7 @@ function Appointment() {
       );
     }
   }
-  // console.log(allOnBoardPasien)
+  console.log(data)
 
   function getDate() {
     const now = new Date();
@@ -72,25 +73,25 @@ function Appointment() {
       "November",
       "December",
     ];
-    const day = days[now.getDay()];
+    const day = days[ now.getDay() ];
     const today = now.getDate();
-    const month = months[now.getMonth()];
+    const month = months[ now.getMonth() ];
     const year = now.getFullYear();
 
-    return `${day},   ${today}   ${month}   ${year}`;
+    return `${ day },   ${ today }   ${ month }   ${ year }`;
   }
   useEffect(() => {
     setDate(getDate);
   }, []);
-
+  console.log(data)
   return (
     <>
       <Navigation />
       <div className="div-information container">
-        {error && <Error />}
+        { error && <Error /> }
         <h1>Appointments Table</h1>
-        <p className="div-date">{date}</p>
-        {loading && <Loading />}
+        <p className="div-date">{ date }</p>
+        { loading && <Loading /> }
         <table className="table">
           <thead>
             <tr>
@@ -106,41 +107,41 @@ function Appointment() {
             </tr>
           </thead>
           <tbody>
-            {data &&
+            { data &&
               allOnBoardPasien &&
               data.appointments.map((data, index) => (
                 <tr
-                  key={index}
+                  key={ index }
                   style={
-                    data.doctor[0].polyclinic === "umum"
+                    data.doctor[ 0 ].polyclinic === "umum"
                       ? { backgroundColor: "#85a392" }
                       : { backgroundColor: "#dee3e2" }
                   }
                 >
-                  <td>{index + 1}</td>
-                  <td>{data.user[0].name}</td>
-                  <td>{data.doctor[0].polyclinic}</td>
-                  <td>{data.doctor[0].name}</td>
-                  <td>09.00 WIB</td>
+                  <td>{ index + 1 }</td>
+                  <td>{ data.user[ 0 ].name }</td>
+                  <td>{ data.doctor[ 0 ].polyclinic }</td>
+                  <td>{ data.doctor[ 0 ].name }</td>
+                  <td>{ data.createdAt }</td>
                   <td>11.00 WIB</td>
-                  {data.status === "on process" ? (
-                    <td style={{ color: "#006a71" }}>{data.status}</td>
+                  { data.status === "on process" ? (
+                    <td style={ { color: "#006a71" } }>{ data.status }</td>
                   ) : data.status === "done" ? (
-                    <td style={{ color: "#ea5455" }}>{data.status}</td>
+                    <td style={ { color: "#ea5455" } }>{ data.status }</td>
                   ) : (
-                    <td style={{ color: "#fa7d09" }}>{data.status}</td>
-                  )}
+                        <td style={ { color: "#fa7d09" } }>{ data.status }</td>
+                      ) }
 
-                  <td>{data.queueNumber}</td>
-                  {allOnBoardPasien.find(
+                  <td>{ data.queueNumber }</td>
+                  { allOnBoardPasien.find(
                     (pasien) => pasien.appointmentId === data._id
                   ) ? (
-                    <td>on board</td>
-                  ) : (
-                    <td>off board</td>
-                  )}
+                      <td>on board</td>
+                    ) : (
+                      <td>off board</td>
+                    ) }
                 </tr>
-              ))}
+              )) }
           </tbody>
         </table>
       </div>
