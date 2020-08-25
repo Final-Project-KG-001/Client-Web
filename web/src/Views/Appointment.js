@@ -48,6 +48,13 @@ const GET_APPOINTMENTS = gql`
       appointmentId
     }
   }
+  dentals(access_token:$access_token) {
+    appointmentId
+  }
+  generals(access_token:$access_token) {
+    appointmentId
+  }
+}
 `;
 
 function Appointment() {
@@ -138,7 +145,7 @@ function Appointment() {
   useEffect(() => {
     setDate(getDate);
   }, []);
-  console.log(loading, error, data)
+  
   return (
     <>
       <Navigation />

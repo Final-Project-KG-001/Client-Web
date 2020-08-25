@@ -13,19 +13,15 @@ function Navigation() {
   return (
 
     <div className='container-fluid div-nav'>
-      <div className="nav-left">
-        <Link to="/home">
-          <p>Agile Hospital</p>
-        </Link>
-      </div>
-      <div className="nav-right">
-
+      <div className="nav-left d-flex" >
         <Link to="/appointment" >
           <p>Appointment</p>
         </Link>
         <Link to="/controller">
-          <p>Controller</p>
+          <p style={ { marginLeft: "10px" } }>Controller</p>
         </Link>
+      </div>
+      <div className="nav-right">
         <Link to="/">
           <p onClick={ () => handleClick() }>Logout</p>
         </Link>

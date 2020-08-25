@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import { gql, useQuery, useSubscription } from '@apollo/client'
 
 const GET_DATA = gql`
-  query GetData{
-    appointments{
+  query GetData($access_token:String){
+    appointments(access_token:$access_token){
       _id
       queueNumber
       status
@@ -16,8 +16,8 @@ const GET_DATA = gql`
 }
 `
 const SUBSCRIBE_NEW_APPOINTMENT = gql`
-  subscription newAppointment {
-    newAppointment {
+  subscription newAppointment{
+    newAppointment{
       _id
       userId
       doctorId
@@ -32,11 +32,11 @@ const SUBSCRIBE_NEW_APPOINTMENT = gql`
 
 
 function AntrianCard({ doctor }) {
-  const { data, subscribeToMore } = useQuery(GET_DATA)
-  // const { data: subscription } = useSubscription(SUBSCRIBE_NEW_APPOINTMENT)
+  const { data, subscribeToMore } = useQuery(GET_DATA, { variables: { access_token: localStorage.getItem("access_token") } })
+
+  const { data: subscription } = useSubscription(SUBSCRIBE_NEW_APPOINTMENT)
+
   let findOnProcess = null
-
-
 
   useEffect(() => {
 
@@ -67,26 +67,31 @@ function AntrianCard({ doctor }) {
       key={ doctor._id }
       className={ doctor.polyclinic === "umum" ? "card card-antrian d-flex" : "card card-antrian2 d-flex" }>
       <div className="card-body">
-        <p>Nomor Antrian:</p>
-        { doctor.polyclinic === "umum" &&
-          <>
-            { data &&
-              <h1>A { findOnProcess ? findOnProcess.queueNumber : 0 }</h1>
-            }
-          </>
-        }
-        { doctor.polyclinic === "gigi" &&
-          <>
-            { data &&
-              <h1>B { findOnProcess ? findOnProcess.queueNumber : 0 }</h1>
-            }
-          </>
-        }
-
-        <hr />
-        <p className="card-title">Poli { doctor.polyclinic }</p>
-        <h5 className="card-title">{ doctor.name }</h5>
+        <div className="div-antrian_title">
+          <p>Antrian</p>
+        </div>
+        <div className="div-antrian_number">
+          { doctor.polyclinic === "umum" &&
+            <>
+              { data &&
+                <h1>A { findOnProcess ? findOnProcess.queueNumber : 0 }</h1>
+              }
+            </>
+          }
+          { doctor.polyclinic === "gigi" &&
+            <>
+              { data &&
+                <h1>B { findOnProcess ? findOnProcess.queueNumber : 0 }</h1>
+              }
+            </>
+          }
+        </div>
+        <div className="div-antrian_poli">
+          <p className="card-title">Poli { doctor.polyclinic }</p>
+          {/* <h5 className="card-title">{ doctor.name }</h5> */ }
+        </div>
       </div>
+
     </div>
   )
 }
