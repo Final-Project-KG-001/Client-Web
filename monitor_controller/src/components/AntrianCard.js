@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { gql, useQuery, useSubscription } from '@apollo/client'
+import { gql, useQuery } from '@apollo/client'
 
 const GET_DATA = gql`
   query GetData($access_token:String){
@@ -33,8 +33,6 @@ const SUBSCRIBE_NEW_APPOINTMENT = gql`
 
 function AntrianCard({ doctor }) {
   const { data, subscribeToMore } = useQuery(GET_DATA, { variables: { access_token: localStorage.getItem("access_token") } })
-
-  const { data: subscription } = useSubscription(SUBSCRIBE_NEW_APPOINTMENT)
 
   let findOnProcess = null
 
