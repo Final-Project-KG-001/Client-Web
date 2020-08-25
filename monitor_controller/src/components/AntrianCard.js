@@ -33,7 +33,7 @@ const SUBSCRIBE_NEW_APPOINTMENT = gql`
 
 function AntrianCard({ doctor }) {
   const { data, subscribeToMore } = useQuery(GET_DATA)
-  const { data: subscription } = useSubscription(SUBSCRIBE_NEW_APPOINTMENT)
+  // const { data: subscription } = useSubscription(SUBSCRIBE_NEW_APPOINTMENT)
   let findOnProcess = null
 
 
