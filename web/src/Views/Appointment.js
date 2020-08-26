@@ -4,6 +4,26 @@ import Loading from "../components/Loading";
 import Error from "../components/Error";
 import Navigation from "../components/Navigation";
 
+const SUBSCRIBE_NEW_APPOINTMENT = gql`
+  subscription onAppointmentAdded {
+    newAppointment {
+      _id
+      userId
+      doctorId
+      queueNumber
+      status
+      createdAt
+      doctor {
+        name
+        polyclinic
+      }
+      user {
+        name
+      }
+    }
+  }
+`;
+
 const SUBSCRIBE_NEW_DENTAL = gql`
   subscription onDentalAdded {
     newDental {
@@ -59,6 +79,22 @@ function Appointment() {
   });
 
   useEffect(() => {
+    subscribeToMore({
+      document: SUBSCRIBE_NEW_APPOINTMENT,
+      updateQuery(prev, { subscriptionData }) {
+        if(!subscriptionData.data) {
+          return prev;
+        }
+
+        const newAppointment = subscriptionData.data.newAppointment;
+
+        return {
+          ...prev,
+          appointments: [ ...prev.appointments, newAppointment ]
+        };
+      }
+    });
+
     subscribeToMore({
       document: SUBSCRIBE_NEW_DENTAL,
       updateQuery(prev, { subscriptionData }) {
