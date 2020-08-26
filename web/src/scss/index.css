@@ -237,33 +237,6 @@
   opacity: 0.7;
 }
 
-.div-footers {
-  height: 250px;
-  background-color: #ea8685;
-  margin-bottom: 0;
-  margin-top: 50px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  color: #55efc4;
-}
-
-.div-footers .col-2 {
-  margin: auto 0;
-}
-
-.div-footers .col-2 img {
-  width: 40px;
-  height: 40px;
-}
-
-.div-footers .title-info_footer {
-  margin-top: 10px;
-  font-size: 15px;
-  font-weight: bold;
-  color: black;
-}
-
 .div-time {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;

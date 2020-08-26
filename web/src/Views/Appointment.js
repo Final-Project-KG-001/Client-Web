@@ -62,7 +62,7 @@ function Appointment() {
     subscribeToMore({
       document: SUBSCRIBE_NEW_DENTAL,
       updateQuery(prev, { subscriptionData }) {
-        if(!subscriptionData.data) {
+        if (!subscriptionData.data) {
           return prev;
         }
         const newDental = subscriptionData.data.newDental;
@@ -77,7 +77,7 @@ function Appointment() {
     subscribeToMore({
       document: SUBSCRIBE_NEW_GENERAL,
       updateQuery(prev, { subscriptionData }) {
-        if(!subscriptionData.data) {
+        if (!subscriptionData.data) {
           return prev;
         }
         const newGeneral = subscriptionData.data.newGeneral;
@@ -88,7 +88,7 @@ function Appointment() {
         }
       }
     });
-  }, [subscribeToMore])
+  }, [ subscribeToMore ])
 
   const allOnBoardPasien = [];
   if (data) {
@@ -138,7 +138,7 @@ function Appointment() {
   useEffect(() => {
     setDate(getDate);
   }, []);
-  
+
   return (
     <>
       <Navigation />
@@ -155,7 +155,6 @@ function Appointment() {
               <th scope="col">Poli</th>
               <th scope="col">Dokter</th>
               <th scope="col">Waktu Pendaftaran</th>
-              <th scope="col">Estimasi Giliran</th>
               <th scope="col">Status</th>
               <th scope="col">Antrian</th>
               <th scope="col">Attendance</th>
@@ -178,7 +177,6 @@ function Appointment() {
                   <td>{ data.doctor[ 0 ].polyclinic }</td>
                   <td>{ data.doctor[ 0 ].name }</td>
                   <td>{ data.createdAt }</td>
-                  <td>11.00 WIB</td>
                   { data.status === "on process" ? (
                     <td style={ { color: "#006a71" } }>{ data.status }</td>
                   ) : data.status === "done" ? (

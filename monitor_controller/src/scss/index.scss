@@ -183,10 +183,16 @@ $seventh-color:#838383;
 }
 
 img{
-  border-radius: 1000px;
+  // border-radius: 1000px;
   height:190px;
   width:190px;
   margin:auto;
+  height: 12rem;
+  width: 12rem;
+  background-position: top;
+  background-size: cover;
+  border-radius: 100px;
+  aspect-ratio: 9/16
 }
 
 h2{
