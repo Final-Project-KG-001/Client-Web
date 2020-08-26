@@ -174,8 +174,6 @@ function Appointment() {
   useEffect(() => {
     setDate(getDate);
   }, []);
-
-  console.log(error, loading, data);
   
   return (
     <>
