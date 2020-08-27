@@ -18,6 +18,13 @@ const GET_DATA = gql`
       doctor{
         name
       }
+    },
+    
+    dentals(access_token:$access_token){
+      _id
+    },
+    generals(access_token:$access_token){
+      _id
     }
 }
 `
@@ -130,10 +137,10 @@ function AntrianCard({ doctor }) {
       <div>
         <div className="card card-poli d-flex">
           <div className="card-body">
-            <h3 className="card-title">Poli { doctor.polyclinic }</h3>
+            <h3 className="card-title">{ doctor.polyclinic === "umum" ? "General Polyclinic" : "Dental Polyclinic" }</h3>
             <h5 className="card-title">{ doctor.name }</h5>
             <hr />
-            <p>Nomor Antrian:</p>
+            <p>Queue Number:</p>
 
             {
               doctor.polyclinic === 'umum' ? <h1>A { onProcess }</h1> : <h1>B { onProcess }</h1>
@@ -141,17 +148,22 @@ function AntrianCard({ doctor }) {
 
             <hr />
           </div>
-          <div className="button_controller d-flex">
-            <p style={ { backgroundColor: "#3797a4" } } onClick={ () => handlePrevious() }>Previous</p>
-            <p style={ { backgroundColor: "#f8b24f" } } onClick={ () => handleNext() }>Next</p>
-            {
-              onProcess === 0 && <p onClick={ (e) => handleStart(e) }>Start</p>
-            }
-
-          </div>
+          {
+            data.dentals.length === 0 && data.generals.length === 0 ?
+              <div className="button_controller d-flex">
+                <p>No on boarding patients</p>
+              </div> :
+              <div className="button_controller d-flex">
+                <p style={ { backgroundColor: "#3797a4" } } onClick={ () => handlePrevious() }>Previous</p>
+                <p style={ { backgroundColor: "#f8b24f" } } onClick={ () => handleNext() }>Next</p>
+                {
+                  onProcess === 0 && <p onClick={ (e) => handleStart(e) }>Start</p>
+                }
+              </div>
+          }
         </div>
         { isAllDone && <p style={ { color: '#24a19c' } }>All done</p> }
-        { noList && <p style={ { color: '#24a19c' } }>Tidak ada daftar pasien!!</p> }
+        { noList && <p style={ { color: '#24a19c' } }>No more patients on waiting list!!</p> }
       </div>
     </>
   )

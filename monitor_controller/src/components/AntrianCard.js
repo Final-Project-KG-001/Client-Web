@@ -66,7 +66,7 @@ function AntrianCard({ doctor }) {
       className={ doctor.polyclinic === "umum" ? "card card-antrian d-flex" : "card card-antrian2 d-flex" }>
       <div className="card-body">
         <div className="div-antrian_title">
-          <p>Antrian</p>
+          <p>Queue Number</p>
         </div>
         <div className="div-antrian_number">
           { doctor.polyclinic === "umum" &&
@@ -85,7 +85,7 @@ function AntrianCard({ doctor }) {
           }
         </div>
         <div className="div-antrian_poli">
-          <p className="card-title">Poli { doctor.polyclinic }</p>
+          <p className="card-title">{ doctor.polyclinic === "umum" ? "General Polyclinic" : "Dental Polyclinic" }</p>
           {/* <h5 className="card-title">{ doctor.name }</h5> */ }
         </div>
       </div>

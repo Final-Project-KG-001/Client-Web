@@ -28,8 +28,8 @@ function Navigation() {
   function getDate() {
     const now = new Date()
 
-    const days = [ 'Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu' ]
-    const months = [ 'January', 'February', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'December' ]
+    const days = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ]
+    const months = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
     const day = days[ now.getDay() ]
     const today = now.getDate()
     const month = months[ now.getMonth() ]

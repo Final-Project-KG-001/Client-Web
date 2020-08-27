@@ -82,7 +82,7 @@ function Appointment() {
     subscribeToMore({
       document: SUBSCRIBE_NEW_APPOINTMENT,
       updateQuery(prev, { subscriptionData }) {
-        if(!subscriptionData.data) {
+        if (!subscriptionData.data) {
           return prev;
         }
 
@@ -142,25 +142,25 @@ function Appointment() {
     const now = new Date();
 
     const days = [
-      "Minggu",
-      "Senin",
-      "Selasa",
-      "Rabu",
-      "Kamis",
-      "Jumat",
-      "Sabtu",
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
     ];
     const months = [
       "January",
       "February",
-      "Maret",
-      "April",
-      "Mei",
-      "Juni",
-      "Juli",
-      "Agustus",
+      "March",
+      "Apryl",
+      "May",
+      "June",
+      "July",
+      "August",
       "September",
-      "Oktober",
+      "October",
       "November",
       "December",
     ];
@@ -188,11 +188,11 @@ function Appointment() {
             <tr>
               <th scope="col">No</th>
               <th scope="col">Pasien</th>
-              <th scope="col">Poli</th>
-              <th scope="col">Dokter</th>
-              <th scope="col">Waktu Pendaftaran</th>
+              <th scope="col">Polyclinic</th>
+              <th scope="col">Doctor</th>
+              <th scope="col">Booked Time</th>
               <th scope="col">Status</th>
-              <th scope="col">Antrian</th>
+              <th scope="col">Queue Number</th>
               <th scope="col">Attendance</th>
             </tr>
           </thead>

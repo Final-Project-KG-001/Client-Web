@@ -28,6 +28,7 @@ function Controller() {
             {
               data.doctors.map(doctor => (
                 <AntrianCard
+
                   key={ doctor._id }
                   doctor={ doctor }
                 />

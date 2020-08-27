@@ -58,8 +58,8 @@ function ShowMonitor() {
             </div>
             <div className="container div-left_bottom">
               <select onChange={ (event) => setOption(event.target.value) } style={ { color: '#838383', marginRight: "10px", outline: "none", borderColor: "#838383", width: "20px", height: "20px", borderRadius: "50%" } }>
-                <option value="">Pilih kategori:</option>
-                <option data-toggle="modal" data-target="#exampleModalCenter" value="informasi">informasi</option>
+                <option value="">Choose categori:</option>
+                <option data-toggle="modal" data-target="#exampleModalCenter" value="informasi">information</option>
                 <option value="quotes">quotes</option>
               </select>
 

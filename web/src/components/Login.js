@@ -33,7 +33,7 @@ function Login() {
 
     event.preventDefault()
     try {
-      const { loading, error, data } = await loginAdmin({
+      const { data } = await loginAdmin({
         variables: {
           email: email,
           password: password
